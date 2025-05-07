@@ -1,0 +1,17 @@
+{
+    "supported_intents": [
+        "park_hours",
+        "trail_info",
+        "booking",
+        "weather",
+        "faq",
+        "greeting",
+        "time_based_greeting"
+    ],
+    "min_confidence": 0.65,
+    "out_of_scope_responses": [
+        "I focus on Balle Mountain Park information. How can I help with the park?",
+        "Let's keep our chat about the park. What would you like to know?",
+        "I'm here to help with park-related questions. Ask me about trails or facilities!"
+    ]
+}

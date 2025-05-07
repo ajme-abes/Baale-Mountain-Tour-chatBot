@@ -1,0 +1,217 @@
+{
+  "intents": [
+    {
+      "tag": "greeting",
+      "patterns": [
+        "hello",
+        "hi",
+        "hey",
+        "good morning",
+        "good evening",
+        "How are you",
+        "good night",
+        "good evening", 
+        "how do you do?", 
+        "what's up?"
+      ],
+      "responses": [
+        "Hello", 
+        "Fine" ,
+        "Good morning",
+        "Good night",
+        "Good evening",
+        "I am well" ,
+        "Great Buddy !"
+      ],
+      "entities": [
+        " "
+      ]
+    },
+    {
+      "tag": "place_info",
+      "patterns": [
+        "tell me about the Baale Mountain,",
+        "what is the Baale Mountain,",
+        "describe the Baale Mountain,"
+      ],
+      "responses": [
+        "Bale Mountains National Park is known for its diverse ecosystems, rare wildlife like the Ethiopian wolf, and stunning landscapes such as the Sanetti Plateau and Harenna Forest. It's perfect for wildlife enthusiasts and nature lovers."
+      ],
+      "entities": [
+        " "
+      ]
+    },
+    {
+      "tag": "place_History",
+      "patterns": [
+        "Tell me history of the Bale Mountains",
+        "What is the history of Bale Mountains?",
+        "Explain the history of Bale Mountains National Park",
+        "Historical background of Bale Mountains"
+      ],
+      "responses": [
+        "In contrast to other parts of Ethiopia, very little was written about the Bale Mountains prior to the 1950s.\nThis is despite the fact that Goba (a central town within the mountains) was connected to Addis Ababa by a telegraph line in 1931;\nwas served with Ethiopian Airlines DC-3 aircrafts prior to the 1950s;\nand that the brief period of Italian government (1935-1941) reached the region with stations in Goba, Dinsho and Delo-Mena.\n\nAs records begin to appear at the beginning of the 20th century, the Bale Mountains were largely uninhabited.\nThe first recorded visit was by the German naturalist and explorer Carlo Von Erlanger,\nwho reached the Bale Mountains between 1899 and 1901, and documented the existence of the giant molerat.\nThereafter, a Frenchman, the Viscompte du Bourg, spent two months in Goba in 1901 hunting elephant to the south and travelling around the mountains.\nHe recorded the existence of elephant and buffalo in the Harenna forest,\nand commented on the ivory hunting of the area - primarily by mounted horsemen using guns.\n\nFollowing these early records, there is no information until the late 1950s, when Finnish geographer Helmer Smels arrived in Bale.\nHe made three journeys to Bale and crossed the area from Goba, through Rira, to Delo-Mena.\nBy the time of his visits, just 50 years after Viscompte du Bourg had noted the presence of elephants;\nthey had disappeared from the Harenna forest. Smels noted that although the Sanetti plateau was uninhabited,\npeople drove their cattle to the plateau for grazing during the dry season, sometimes for up to three months.\nAdditionally, the mountains were used for their mineral springs, or horas, to which the pastoral people also drove their cattle.\nPeople stayed overnight in simple, temporary shelters made of split bamboo. The Harenna forest was for the most part,\nuninhabited except for small groups of temporary huts that were established throughout land clearings where people grazed their cattle for part of the year.\nAlthough not dwelling there permanently, honey gatherers have always been active in the Harenna forest.\n\nDuring the same period, a British botanist, Herbert Mooney, visited the Harenna forest and Sanetti plateau.\nHe noted the growing settlement of Rira within the forest and other hamlets of honey gatherers and pastoral people.\nAlthough the Harenna forest 20\n\nwas probably quite populated in the latter half of the 19th century,\nthe area was depopulated again as a result of a rinderpest epidemic that killed most of the cattle in the early 1890s.\n\nIn the 1960s, a Belgian sheep farmer, B.N Weerts, obtained a concession of 400km2 of land within the Dinsho area and Gaysay valley.\nHis developments have since become the nucleus for the headquarters of the national park.\nThe impetus for the present national park, however, began with British naturalist,\nDr. Leslie Brown, who visited the area in 1963 and again in 1965.\nBrown was in the area explicitly to assess the status of mountain nyala.\nThe outcome of his visits was to establish a national park within the Bale Mountains to protect its habitat. John Blower,\nadvisor to the Ethiopian Wildlife Conservation Organization – now the Ethiopian Wildlife Conservation Authority (EWCA) – and a Peace Corps volunteer, followed through with Dr.\nBrown’s recommendation by surveying the area and proposed boundaries for the park.\n\nAt its inception in late 1969, there were few permanent settlers in the park.\nHowever, Brown predicted with unnerving accuracy that the agricultural expansion of the plains surrounding the mountains would permanently push rural people to higher and higher altitudes,\nand into areas they previously used only on a seasonal basis.\nThis has now happened, and the number of permanent houses within the park has been increasing exponentially.\nA 2011 study indicated approximately 3,700 households with an average of seven people per house for a total of 25,900 people living within the park.\nConsequently, cattle density is estimated in areas such as the Web valley, a prime Ethiopian wolf habitat, at 250 per km2.\n\nSUMMARY:\nThe Bale Mountains in Ethiopia were sparsely documented before the 1950s, despite their connection to Addis Ababa and Italian occupation in the 1930s.\nEarly explorers like Carlo Von Erlanger and Viscompte du Bourg recorded the region’s rich wildlife, including elephants, buffalo, and the giant molerat.\nBy the 1950s, Finnish geographer Helmer Smels noted the disappearance of elephants and observed seasonal cattle grazing and honey gathering in the mountains.\nBritish botanist Herbert Mooney also reported temporary settlements and a growing population in areas like Rira. In the 1960s, efforts to establish a national park began, led by British naturalist Dr.\nLeslie Brown to protect the mountain nyala and its habitat. The Bale Mountains National Park was created in 1969.\nSince then, population growth and agricultural expansion have led to permanent settlement within the park, increasing human impact on its fragile ecosystems."
+      ],
+      "entities": [
+        " "
+      ]
+    },
+      {
+        "tag": "getting_there",
+        "patterns": ["How do I get to Bale Mountains?", "What is the best way to reach Bale Mountains?", "Travel directions to Bale Mountains"],
+        "responses": [
+            "There are several ways to reach Bale Mountains National Park from Addis Ababa, including private vehicle, flights, and public transportation. By private vehicle, \n there are three main routes:\n Assela Route (6-7 hours): \n Drive from Addis via the expressway to Adama, then continue through Assela and Dodola to Dinsho. Notable sights include Sodere Hot Springs, Dera Delfeker Reserve, and Wabe Waterfall.\n Mojo/Shashemene Road: \n This route takes you through the scenic Rift Valley Lakes (Ziway, Langano, Abiata, and Shala) and Shashemene, known for its Rastafarian community. Continue through Dodola to reach Dinsho.\n Butajira/Ziway Road:\n A more scenic but longer route, passing through archaeological and cultural sites like Melka Kunture, Adadi Maryam Church, and Tiya Stelae before connecting with the Mojo route to Dinsho.\n Flights are available from Addis to Bale Robe three times a week on Ethiopian Airlines, with discounts for international ticket holders.\n For public transportation (8 hours), buses depart from Addis Ababa’s Mercato station. Level 1 buses offer the most comfort. Minibuses and buses connect surrounding towns like Robe and Goba, though schedules can be unpredictable. Early starts are recommended for smoother travel."
+          ],
+      "entities": [
+        " "
+       ]
+     },
+    {
+      "tag": "trip_itineraries",
+      "patterns": [
+        "Suggest a trip itinerary for Bale Mountains",
+        "What are the recommended itineraries?", 
+        "Can you provide a 3-day itinerary for Bale Mountains?"
+      ],
+      "responses": [
+        "The Bale Mountains National Park (BMNP) offers diverse trekking and wildlife experiences, with itineraries tailored to visitors' preferences. Trekking routes range from 2 to 11 days, covering altitudes of 3,000m to 4,100m, with campsites spaced 17–22km apart. \n\nGuided tours are highly recommended for safety and cultural interaction, as well as to enhance wildlife spotting and logistical support.\nVisitors can explore Afroalpine landscapes, Harenna Forest, and the Sanetti Plateau—home to rare species like the Ethiopian wolf, mountain nyala, and Bale monkey. \n Key sites include Web Valley, Gaysay Grasslands, and Tulu Dimtu, the second-highest peak in Ethiopia.\n Other activities include hiking to waterfalls, bamboo forest trails, fishing, and traditional coffee harvesting. \n\n For a richer experience, guided excursions and local accommodation options are available."
+      ],
+      "entities": [
+        " "
+      ]
+    },
+    {
+      "tag": "activities_within_park",
+      "patterns": [
+        "What activities are available?", 
+        "Things to do in Bale Mountains", 
+        "Activities within Bale Mountains National Park"
+      ],
+      "responses": [
+        "In addition to general sight seeing and trekking, there are many day hikes and activities to explore within the park:,\n\n Trekking,\nBirding,\n Fishing,\nManyete: Wild Forest Coffee Village,\n Harvesting Honey with the Locals,\n Park Headquarters Walk,\nGushuralle Peak Forest Forest Trail ,\n Harenna Bamboo and Waterfall Trail, \nWeb Valley Walks,\nGasuray Gorge"
+      ],
+      "entities": {
+        "trail_name": ["Summit Trail", "Green Valley Trail"],
+        "difficulty": ["Hard", "Easy"]
+      }
+    },
+    {
+      "tag": "nearby_attractions",
+      "patterns": [
+        "What are the nearby attractions?",
+        "Places to visit near Bale Mountains", 
+        "Nearby tourist spots"
+      ],
+      "responses": [
+        "Dire Sheik Hussein \nLocated 180 km from the Bale Mountains National Park, the shrine of Sheik Hussein is a significant religious site named after Sheik Hussein Bin Malka, a respected Muslim holy man known for his teachings and miraculous deeds.\n He is believed to have lived for 250 years, with 70 of those years spent at the shrine. \nThousands of pilgrims visit twice a year — in June for his death anniversary and in October to celebrate the birth of Prophet Mohammed. \nThe shrine is surrounded by whitewashed walls, with holy water believed to have healing powers nearby. \nVisitors must follow a dress code and remove their shoes before entering.\nSof-Omar Caves\nLocated 115 km from the Bale Mountains headquarters, the Sof-Omar caves are the longest underground caves in Africa, stretching over 1.5 km. The caves were formed by the Web River, creating stunning limestone structures and deep gorges. A full walk through the caves takes 3–4 hours, with sections of waist-deep water during certain months. The caves are a place of worship for Ethiopian Muslims, with two annual festivals drawing around 1,000 people. The surrounding area is rich in wildlife like monkeys, dik-diks, and over 50 bird species.\nWabe Shebele Gorge\nThe Wabe Shebele Gorge is one of Ethiopia’s most dramatic landscapes, with breathtaking views and winding roads that descend into vast lowlands 1,000 meters below. \nThe road through the gorge offers fantastic views and encounters with wildlife such as rock hyrax, klipspringers, and leopards.\n Camping is possible in certain areas along the route.\nGasera Gorge\nCarved by the Wabe Shebele River, the Gasera Gorge is one of the most beautiful spots in Bale. Visitors can spot bearded vultures flying overhead and meet the Werdube tribes known for swimming and planting fruits along the riverbanks. The best way to explore the gorge is to take the new gravel road from Gasera town toward Endeto."
+      ],
+      "entities": {
+        "trail_name": ["Summit Trail", "Green Valley Trail"],
+        "difficulty": ["Hard", "Easy"]
+      }
+    },
+    {
+   "tag": "lodging",
+      "patterns": ["Where can I stay?", "Accommodation options in Bale Mountains", "Is there lodging in the park?"],
+      "responses": [
+        "Accommodation at Bale Mountains National Park (BMNP) Headquarters, Dinsho\nThe Dinsho Lodge is currently closed, with hopes to reopen soon. For updates, email info@balemountains.org.\nCamping at Dinsho is available with basic facilities like a kitchen, toilets, and a shower.\n\nAccommodation in the Harenna Forest – Bale Mountain Lodge\n\nThe Bale Mountain Lodge is the best accommodation in the Bale area, located in the Katcha clearing of the Harenna Forest.\nIt has 11 double rooms and offers nature-based activities. A resident naturalist is available for guidance.\nBooking in advance is required since the lodge is often fully booked.\nContact: www.balemountainlodge.com | Tel: +251 (0)912790802 | E-mail: info@balemountainlodge.com\nThe lodge is about an 8-hour drive from Addis Ababa, depending on road conditions and stops.\n\nAccommodation in Goba\nThe Wabe Shebelle Hotel in Goba is the best option for staying near the Goba/Robe area.\nIt is located about 40 minutes from Dinsho and the Sanetti Plateau entrance."
+      ]
+    },
+    {
+      "tag": "when_to_go",
+      "patterns": ["When is the best time to visit?", "Best time to go to Bale Mountains", "Season to visit Bale Mountains"],
+      "responses": [
+        "Weather at Bale Mountains National Park (BMNP)\nTemperatures vary greatly across the park.  \nSanetti Plateau: Daytime temperatures are around 5°C (41°F) with strong winds and can drop below freezing at night.  \nNorthern areas and Harenna Forest: Warmer during the day but still cold at night, sometimes reaching freezing temperatures.\n\nHigh altitudes (over 3,000m): Night frosts are common, and the climate becomes colder and wetter as the elevation increases.\nRainy Season: May to September, with frequent rain and mist.\nBest time to visit:  \nMay to July – Warm, sunny days with occasional afternoon showers; June is perfect for seeing spring flowers like red-hot pokers.  \nOctober to April – Ideal for trekking with sunny days and clear, starry nights"
+      ]
+    },
+    {
+      "tag": "what_to_bring",
+      "patterns": ["What should I bring?", "Packing list for Bale Mountains", "What do I need for a trip to Bale Mountains?"],
+      "responses": [
+        "Camping Gear: Basic camping items can be rented in Dinsho.\nFood: Only basic items like pasta and tomato paste are available in Dinsho.\nMarket Days: Fresh fruit, vegetables, and eggs can be bought on Tuesdays and Saturdays. Your guide can help with shopping.  \nMeat: It’s possible to have a goat or sheep slaughtered in Dinsho or at some campsites.  \nMore Food Options: Found in Robe and Goba. You can carry supplies using a packhorse.  \nWater: Available in the park but must be treated (no purification treatment available).\n\nClothing Tips:\nDry Season: Bring a hat and high SPF sunscreen—days can be cool but still sunny.\nCold Evenings: Pack warm clothes as temperatures drop at night.\nRainy Season (June to October): Trails can get muddy, so wear proper trekking shoes."
+      ]
+    },
+    {
+      "tag": "health_and_safety",
+      "patterns": ["Is it safe to visit Bale Mountains?", "Health and safety tips", "Any safety precautions?"],
+      "responses": [
+        "Altitude Sickness (AMS):  \nRare because most visitors acclimatize in Addis Ababa first.  \nSymptoms: Headaches, lightheadedness, fatigue—staying hydrated helps.  \nPrevention: Avoid strenuous activity when dehydrated.  \nCure: If symptoms persist, descend to a lower altitude quickly.\nMalaria:  \nBMNP is malaria-free, but you may pass through malaria-prone areas en route. Consider medication if you plan to visit those areas.\nPetty Crime:  \nRare in the Bale Mountains, but take basic precautions.Other Dangers:  \nNo venomous spiders or snakes (except for rarely seen snakes in the Harenna Forest).  \nRabies Risk: Exists in local dogs. Avoid all dogs and scare them away by pretending to throw a rock if approached."
+      ]
+    },
+    {
+      "tag": "park_fees",
+      "patterns": [
+        "What are the park fees?",
+        "Entry fee for Bale Mountains",
+        "How much does it cost to enter the park?"
+      ],
+      "responses": [
+        {
+          "fees": {
+            "entranceFees": {
+              "ethiopianTourist": {
+                "12YearsAndAbove": 20,
+                "lessThan12Years": 10
+              },
+              "student": 10,
+              "foreignResidentTourist": {
+                "12YearsAndAbove": 50,
+                "lessThan12Years": 10
+              },
+              "foreignTourist": {
+                "12YearsAndAbove": 90,
+                "lessThan12Years": 10
+              }
+            },
+            "vehicleEntranceFees": {
+              "upTo12Seats": {
+                "ethiopianTourist": 10,
+                "foreignResidentTourist": 15,
+                "foreignTourist": 20
+              },
+              "greaterThan12Seats": {
+                "ethiopianTourist": 15,
+                "foreignResidentTourist": 30,
+                "foreignTourist": 40
+              }
+            },
+            "campingFees": {
+              "ethiopianTourist": {
+                "upTo4PersonTent": 10,
+                "moreThan4PersonTent": 15
+              },
+              "foreignResidentTourist": {
+                "upTo4PersonTent": 30,
+                "moreThan4PersonTent": 40
+              },
+              "foreignTourist": {
+                "upTo4PersonTent": 40,
+                "moreThan4PersonTent": 60
+              }
+            }
+          }
+        }
+      ]
+    },
+    
+    {
+      "tag": "bmn_service_provider",
+      "patterns": ["Who provides services in the park?", "Tour operators in Bale Mountains", "Guides and services in Bale Mountains"],
+      "responses": [
+        "Several community associations in Bale Mountains National Park offer services to visitors, ensuring that benefits go directly to the local community. \nVisitors should hire only certified members for reliable service.\nNyala Guides Association: Provides trained guides for park tours. Guides are skilled in wildlife identification, mountain guiding, and customer service.\nWalin Jirana Wood Sellers: Sells dry, eco-friendly firewood from eucalyptus trees at the park gate.\nKeyrensa Horse Providers: Offers pack horses and riding horses for treks, with well-trained handlers.\nBorofa Porters Association: Helps with loading/unloading horses and caring for them during treks.\nKey Kebero Cook Association: Provides trained cooks for camping and trekking, focusing on food safety.\nBarre Women’s Handicraft Association: Sells handmade local crafts at the park headquarters.\nSankate Association: Based in Manyate village, it offers local guides, coffee ceremonies, wild honey, crafts, and a campground with facilities."
+      ]
+    },
+    {
+      "tag": "travel_direction",
+      "patterns": ["Travel directions to Bale Mountains", "How do I get to Bale Mountains?", "Driving directions to Bale Mountains"],
+      "responses": [
+        "Bale Mountain Lodge: Located in the Harenna forest, this is the top accommodation in the Bale area, offering comfortable rooms, activities related to flora and fauna, and expert guidance. Book in advance via Bale Mountain Lodge.\nDilla: A bustling town with a rich history and attractions like Manchiti Rock Engravings and Tutu Fela Stelae Field. It offers several banks and fuel stations. Markets are open daily.\nDinsho: Home to the BMNP headquarters, Dinsho offers camping sites and simple facilities. Cafes serve traditional Ethiopian food. Markets are held on Tuesdays and Saturdays.\nGoba: A stopover point for those traveling through the Bale Mountains, Goba has adequate hotels, markets (Mon, Wed, Fri, Sat), and bus stations with travel options to Addis and Shashemene.\nRobe: Known for its bus stations with services to Addis, it also has banks and markets on Thursdays.\nSof-Omar: A UNESCO tentative site, Sof-Omar is famous for its vast underground caverns. Markets are held on Saturdays.\nYirga Ch’Efe & Yirgalem: Known for high-altitude coffee production and stelae and rock carvings in Dilla. Yirga Ch'Efe is ideal for a quick stopover.\nLocal Markets: Various towns like Adaba-Dodola, Dire Sheik Hussein, and Negele-Borena host markets on different days throughout the week."
+      ]
+    },
+    {
+      "tag": "farewell",
+      "patterns": ["Thank you", "Goodbye", "See you later"],
+      "responses": ["You're welcome! Enjoy your trip to Bale Mountains!", "Goodbye! Have a great adventure!"]
+    }
+  ]
+}
