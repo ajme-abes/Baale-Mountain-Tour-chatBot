@@ -1,91 +1,50 @@
 #!/usr/bin/env python3
 """
-Model Download Script for Bale Mountains Explorer
-
-This script downloads the required ML models that are too large for GitHub.
-Run this after cloning the repository to set up the AI models.
+Download script for large ML models.
+This script downloads the required BERT models for the chatbot.
 """
 
 import os
-import sys
 import requests
-import logging
+import zipfile
 from pathlib import Path
 
-# Configure logging
-logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
-logger = logging.getLogger(__name__)
-
-def download_file(url, local_path, description):
-    """Download a file with progress indication"""
-    try:
-        logger.info(f"Downloading {description}...")
-        response = requests.get(url, stream=True)
-        response.raise_for_status()
-        
-        total_size = int(response.headers.get('content-length', 0))
-        downloaded = 0
-        
-        with open(local_path, 'wb') as f:
-            for chunk in response.iter_content(chunk_size=8192):
-                if chunk:
-                    f.write(chunk)
-                    downloaded += len(chunk)
-                    if total_size > 0:
-                        progress = (downloaded / total_size) * 100
-                        print(f"\rProgress: {progress:.1f}%", end='', flush=True)
-        
-        print()  # New line after progress
-        logger.info(f"✅ {description} downloaded successfully")
-        return True
-        
-    except Exception as e:
-        logger.error(f"❌ Failed to download {description}: {str(e)}")
-        return False
-
-def main():
-    """Main function to download all required models"""
-    logger.info("🏔️ Bale Mountains Explorer - Model Download Script")
-    logger.info("=" * 60)
+def download_models():
+    """Download required ML models for the chatbot."""
     
     base_dir = Path(__file__).parent
+    models_dir = base_dir / "models"
+    models_dir.mkdir(exist_ok=True)
     
-    # Model URLs (you'll need to host these somewhere accessible)
-    models = [
-        {
-            'url': 'https://your-storage-url.com/tf_model.h5',  # Replace with actual URL
-            'path': base_dir / 'bert_baale_model' / 'tf_model.h5',
-            'description': 'TensorFlow BERT Model (418MB)'
-        },
-        # Add more models as needed
-    ]
+    print("🤖 Downloading Bale Mountains Chatbot Models...")
     
-    # Create directories if they don't exist
-    for model in models:
-        model['path'].parent.mkdir(parents=True, exist_ok=True)
+    # Model URLs (you would host these on Google Drive, Dropbox, etc.)
+    models = {
+        "bert_baale_model.zip": "https://your-storage-url/bert_baale_model.zip",
+        "bert_baale_tokenizer.zip": "https://your-storage-url/bert_baale_tokenizer.zip"
+    }
     
-    # Download models
-    success_count = 0
-    for model in models:
-        if model['path'].exists():
-            logger.info(f"⏭️  {model['description']} already exists, skipping...")
-            success_count += 1
+    for model_name, url in models.items():
+        model_path = models_dir / model_name
+        extract_path = base_dir / model_name.replace('.zip', '')
+        
+        if extract_path.exists():
+            print(f"✅ {model_name} already exists")
             continue
             
-        if download_file(model['url'], model['path'], model['description']):
-            success_count += 1
+        print(f"📥 Downloading {model_name}...")
+        
+        # Download model (placeholder - replace with actual URLs)
+        print(f"⚠️  Please manually download {model_name} from your storage")
+        print(f"   Expected location: {extract_path}")
     
-    # Summary
-    logger.info("=" * 60)
-    if success_count == len(models):
-        logger.info("🎉 All models downloaded successfully!")
-        logger.info("You can now run the chatbot with: python start_server.py")
-    else:
-        logger.warning(f"⚠️  {len(models) - success_count} models failed to download")
-        logger.info("Please check the URLs and try again")
-    
-    return success_count == len(models)
+    print("\n💡 Setup Instructions:")
+    print("1. Download the BERT models from your cloud storage")
+    print("2. Extract them to the chatbot_backend directory")
+    print("3. Ensure the following directories exist:")
+    print("   - bert_baale_model/")
+    print("   - bert_baale_tokenizer/")
+    print("\n🚀 Then run: python start_server.py")
 
 if __name__ == "__main__":
-    success = main()
-    sys.exit(0 if success else 1)
+    download_models()
