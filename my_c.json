@@ -1,0 +1,221 @@
+{
+  {
+    "tag": "greeting",
+    "patterns": ["hello", "hi", "hey", "good morning", "good afternoon", "good evening"],
+    "responses": [
+      {"type": "text", "content": "Hello! How can I assist you today?"},
+      {"type": "text", "content": "Hi there! What would you like to know?"}
+    ]
+  },
+  {
+    "tag": "time_based_greeting",
+    "patterns": ["good morning", "good afternoon", "good evening"],
+    "responses": [
+      {"type": "text", "content": "Good {time_of_day}! How can I assist you today?"}
+    ]
+  },
+  {
+    "tag": "",
+    "patterns": [""],
+    "responses": [
+      {
+        "parts": [
+          {
+            "type": "header",
+            "content": ""
+          },
+          {
+            "type": "subheader",
+            "content": ""
+          },
+          {
+            "type": "text",
+            "content": ""
+          },
+          {
+            "type": "list",
+            "content": [
+              ""
+            ]
+          },
+          {
+            "type": "list",
+            "items": [
+              {
+                "text": "",
+                "subitems": [
+                  "",
+                  "",
+                  ""
+                ]
+              },
+            ]
+          }
+          {
+            "type": "table",
+            "columns": [],
+            "rows": [
+              [""],
+              [],
+              []
+            ]
+          }
+        ]
+    }
+  ]
+}, 
+{
+  "tag": "",
+  "patterns": [
+
+  ],
+  "responses": [
+    {
+      "parts": [
+        {
+          "type": "header",
+          "content": ""
+        },
+        {
+          "type": "section",
+          "title": "",
+          "content": [
+           ""
+          ]
+        },
+        {
+          "type": "section",
+          "title": "",
+          "content": [
+            {
+              "type": "timeline",
+              "items": [
+                {
+                  "year": "",
+                  "events": [
+                    ""
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "section",
+          "title": "",
+          "content": [
+            {
+              "type": "list",
+              "icon": "🛡️",
+              "items": [
+                ""
+              ]
+            }
+          ]
+        },
+        {
+          "type": "summary",
+          "content": [
+            ""
+          ]
+        },
+        {
+          "type": "note",
+          "content": ""
+        }
+      ]
+    }
+  ]
+},
+{
+  "tag": "",
+  "patterns": [
+    ""
+  ],
+  "responses": [
+    {
+      "parts": [
+        {
+          "type": "header",
+          "content": ""
+        },
+        {
+          "type": "section",
+          "title": "Why Use Local Guides",
+          "content": [
+            ""
+            {
+              "subitems": [
+                "",
+                ""
+              ]
+            }
+          ]
+        },
+        {
+          "type": "section",
+          "title": "",
+          "content": [
+            {
+              "type": "ordered-list",
+              "items": [
+                {
+                  "day": "",
+                  "activities": [
+                    ""
+                  ]
+                },
+                {
+                  "day": "",
+                  "activities": [
+                    ""
+                  ]
+                },
+                {
+                  "day": "",
+                  "activities": [
+                    ""
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "section",
+          "title": "",
+          "content": [
+         ""
+            {
+              "subitems": [
+                ""
+              ]
+            }
+          ]
+        },
+        {
+          "type": "note",
+          "content":""
+        }
+      ]
+    }
+  ]
+
+  
+}
+//my class
+// farewell
+// weather
+// bmn_service_provider
+// park_fees
+// health_and_safety
+// what_to_bring
+// when_to_go
+// lodging
+// nearby_attractions
+// activities_within_park
+// trip_itineraries
+// place_History
+// place_info
+// time_based_greeting
+// greeting
