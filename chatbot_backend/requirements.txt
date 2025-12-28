@@ -3,14 +3,9 @@ Django==5.2
 djangorestframework==3.15.2
 django-cors-headers==4.6.0
 
-# Machine Learning and NLP (Fixed versions for deployment)
-tensorflow==2.17.0
+# Basic text processing (lightweight for deployment)
 nltk==3.9.1
-spacy==3.8.2
 numpy==1.26.4
-
-# Data Processing
-pandas==2.2.3
 
 # HTTP Requests
 requests==2.32.3
@@ -21,3 +16,9 @@ python-dateutil==2.9.0.post0
 # Production server
 gunicorn==21.2.0
 whitenoise==6.6.0
+
+# Development/Local ML dependencies (commented out for deployment)
+# Uncomment these for local development with full ML features:
+# tensorflow==2.16.1
+# spacy==3.8.2
+# pandas==2.2.3
