@@ -1,552 +1,702 @@
 {
-  "intents":[
+  "intents": [
+    {
+      "tag": "greeting",
+      "patterns": [
+        "hello",
+        "hi",
+        "hey",
+        "hey ther",
+        "How are you?",
+        "What's up?",
+        "Howdy",
+        "Hey there"
+      ],
+      "responses": [
         {
-          "tag": "greeting",
-          "patterns": ["hello", "hi", "hey", "hey ther","How are you?",
-                       "What's up?",
-                       "Howdy",
-                       "Hey there"  ],
-          "responses": [
-            {"type": "text", "content": "Hello! How can I assist you today?"},
-            {"type": "text", "content": "Hi there! What would you like to know?"}
-          ]
+          "type": "text",
+          "content": "Hello! How can I assist you today?"
         },
         {
-          "tag": "time_based_greeting",
-          "patterns": ["good morning", "good afternoon", "good evening"],
-          "responses": [
-            {"type": "text", "content": "Good {time_of_day}! How can I assist you today?"}
-          ]
-        },
-      {
-          "tag": "place_info",
-          "patterns": [
-          "tell me about the Baale Mountain,",
-          "what is the Baale Mountain,",
-          "describe the Baale Mountain,",
-          "Can you give me some information about Baale Mountain?",
+          "type": "text",
+          "content": "Hi there! What would you like to know?"
+        }
+      ]
+    },
+    {
+      "tag": "time_based_greeting",
+      "patterns": [
+        "good morning",
+        "good afternoon",
+        "good evening"
+      ],
+      "responses": [
+        {
+          "type": "text",
+          "content": "Good {time_of_day}! How can I assist you today?"
+        }
+      ]
+    },
+    {
+      "tag": "place_info",
+      "patterns": [
+        "tell me about the Baale Mountain",
+        "tell me about Baale Mountain",
+        "tell me about Bale Mountains",
+        "tell me about Bale Mountains National Park",
+        "tell me about the park",
+        "what is the Baale Mountain",
+        "what is Baale Mountain",
+        "what is Bale Mountains",
+        "what is Bale Mountains National Park",
+        "describe the Baale Mountain",
+        "describe Baale Mountain",
+        "describe Bale Mountains",
+        "describe Bale Mountains National Park",
+        "Can you give me some information about Baale Mountain?",
+        "Can you give me some information about Bale Mountains?",
+        "Can you give me some information about Bale Mountains National Park?",
         "Tell me more about Baale Mountain",
+        "Tell me more about Bale Mountains",
+        "Tell me more about Bale Mountains National Park",
         "What can I know about Baale Mountain?",
-        "What is special about Baale Mountain?"
-          ],
-          "responses": [
+        "What can I know about Bale Mountains?",
+        "What can I know about Bale Mountains National Park?",
+        "What is special about Baale Mountain?",
+        "What is special about Bale Mountains?",
+        "What is special about Bale Mountains National Park?",
+        "park information",
+        "information about the park",
+        "about the park"
+      ],
+      "responses": [
+        {
+          "parts": [
             {
-              "parts": [
+              "type": "header",
+              "content": "Baale mountain information\n\n"
+            },
+            {
+              "type": "text",
+              "content": "Bale Mountains National Park is known for its diverse ecosystems, rare wildlife like the Ethiopian wolf, and stunning landscapes such as the Sanetti Plateau and Harenna Forest. It's perfect for wildlife enthusiasts and nature lovers."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "tag": "getting_there",
+      "patterns": [
+        "How do I get to Bale Mountains?",
+        "How do I get to Bale Mountains National Park?",
+        "How do I get to Baale Mountain?",
+        "How can I reach Bale Mountains?",
+        "How can I reach Bale Mountains National Park?",
+        "How can I reach Baale Mountain?",
+        "What is the way to Bale Mountains?",
+        "What is the way to Bale Mountains National Park?",
+        "What is the way to Baale Mountain?",
+        "How to get there?",
+        "How to reach the park?",
+        "Directions to Bale Mountains",
+        "Directions to Bale Mountains National Park",
+        "Directions to Baale Mountain",
+        "Travel to Bale Mountains",
+        "Travel to Bale Mountains National Park",
+        "Travel to Baale Mountain",
+        "Route to Bale Mountains",
+        "Route to Bale Mountains National Park",
+        "Route to Baale Mountain"
+      ],
+      "responses": [
+        {
+          "parts": [
+            {
+              "type": "header",
+              "content": "How to Get to Bale Mountains National Park"
+            },
+            {
+              "type": "text",
+              "content": "There are three main routes to reach Bale Mountains National Park:"
+            },
+            {
+              "type": "section",
+              "title": "Route 1: Via Addis Ababa - Shashemene - Goba",
+              "content": [
                 {
-                  "type": "header",
-                  "content": "Baale mountain information\n\n"
+                  "type": "text",
+                  "content": "• Distance: 460km from Addis Ababa"
                 },
                 {
                   "type": "text",
-                  "content":"Bale Mountains National Park is known for its diverse ecosystems, rare wildlife like the Ethiopian wolf, and stunning landscapes such as the Sanetti Plateau and Harenna Forest. It's perfect for wildlife enthusiasts and nature lovers."
-
+                  "content": "• Travel time: 6-8 hours by car"
+                },
+                {
+                  "type": "text",
+                  "content": "• Road condition: Mostly paved, good condition"
+                },
+                {
+                  "type": "text",
+                  "content": "• Best for: Most travelers, good road access"
                 }
-              
               ]
-          }
-        ]
-      },
-      {
-        "tag": "place_History",
-        "patterns": [
-          "Tell me history of the Bale Mountains",
-          "Tell me about the history of Baale Mountain",
-          "What is the history of Bale Mountains?",
-          "Explain the history of Bale Mountains National Park",
-          "Historical background of Bale Mountains",
-          "Can you give me some historical information about Baale Mountain?",
+            },
+            {
+              "type": "section",
+              "title": "Route 2: Via Addis Ababa - Dodola - Adaba",
+              "content": [
+                {
+                  "type": "text",
+                  "content": "• Distance: 380km from Addis Ababa"
+                },
+                {
+                  "type": "text",
+                  "content": "• Travel time: 5-7 hours by car"
+                },
+                {
+                  "type": "text",
+                  "content": "• Road condition: Paved to Dodola, gravel to park"
+                },
+                {
+                  "type": "text",
+                  "content": "• Best for: Shorter distance, scenic route"
+                }
+              ]
+            },
+            {
+              "type": "section",
+              "title": "Route 3: Via Addis Ababa - Ziway - Shashemene",
+              "content": [
+                {
+                  "type": "text",
+                  "content": "• Distance: 450km from Addis Ababa"
+                },
+                {
+                  "type": "text",
+                  "content": "• Travel time: 6-7 hours by car"
+                },
+                {
+                  "type": "text",
+                  "content": "• Road condition: Good paved roads"
+                },
+                {
+                  "type": "text",
+                  "content": "• Best for: Alternative scenic route"
+                }
+              ]
+            },
+            {
+              "type": "note",
+              "content": "💡 Tip: Goba town serves as the main gateway to the park with accommodation and supplies available."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "tag": "place_History",
+      "patterns": [
+        "Tell me history of the Bale Mountains",
+        "Tell me about the history of Baale Mountain",
+        "What is the history of Bale Mountains?",
+        "Explain the history of Bale Mountains National Park",
+        "Historical background of Bale Mountains",
+        "Can you give me some historical information about Baale Mountain?",
         "How did Baale Mountain become famous?",
         "What is the significance of Baale Mountain in history?"
-        ],
-        "responses": [
-          {
-            "parts": [
-              {
-                "type": "header",
-                "content": "🕰️ Historical Timeline of Bale Mountains"
-              },
-              {
-                "type": "section",
-                "title": "Early Exploration (1899-1930s)",
-                "content": [
-                  "• 1899-1901: German naturalist Carlo Von Erlanger first documents giant molerat",
-                  "• 1901: French explorer Viscompte du Bourg records elephants/buffalo in Harenna Forest",
-                  "• 1931: Goba connected to Addis via telegraph",
-                  "• 1935-1941: Italian government establishes stations in Goba/Dinsho"
-                ]
-              },
-              {
-                "type": "section",
-                "title": "Mid-20th Century Observations",
-                "content": [
-                  {
-                    "type": "timeline",
-                    "items": [
-                      {
-                        "year": "1950s",
-                        "events": [
-                          "🦌 Finnish geographer Helmer Smels documents:",
-                          " - Disappearance of elephants",
-                          " - Seasonal cattle grazing patterns",
-                          " - Honey gathering traditions"
-                        ]
-                      },
-                      {
-                        "year": "1960s",
-                        "events": [
-                          "🌿 British botanist Herbert Mooney notes:",
-                          " - Growing Rira settlement",
-                          " - 1890s rinderpest epidemic impacts",
-                          " - Temporary pastoral dwellings"
-                        ]
-                      }
-                    ]
-                  }
-                ]
-              },
-              {
-                "type": "section",
-                "title": "Conservation Milestones",
-                "content": [
-                  {
-                    "type": "list",
-                    "icon": "🛡️",
-                    "items": [
-                      "1963-1965: Dr. Leslie Brown advocates for wildlife protection",
-                      "1969: Official park establishment (400km² initial area)",
-                      "2011: Population reaches 25,900 within park boundaries"
-                    ]
-                  }
-                ]
-              },
-              {
-                "type": "summary",
-                "content": [
-                  "📜 Historical Summary:",
-                  "1. Pre-1950s: Sparsely documented despite early infrastructure",
-                  "2. 1900s-1960s: Scientific expeditions reveal ecological changes",
-                  "3. Post-1969: Conservation vs agricultural expansion challenges",
-                  "4. Present: 250 cattle/km² density in critical wolf habitats"
-                ]
-              },
-              {
-                "type": "note",
-                "content": "🌱 Current Status: 3,700+ households within park boundaries - ongoing balance between preservation and community needs"
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "tag": "trip_itineraries",
-        "patterns": [
-          "Suggest a trip itinerary for Bale Mountains",
-          "What are the recommended itineraries?", 
-          "Can you provide a 3-day itinerary for Bale Mountains?"
-        ],
-        "responses": [
-          {
-            "parts": [
-              {
-                "type": "header",
-                "content": "Bale Mountains National Park Itineraries"
-              },
-              {
-                "type": "section",
-                "title": "Customizable Tours",
-                "content": [
-                  "• Tours can be tailored by local guides or Addis-based companies",
-                  "• Choose between hiking or horseback riding (packhorses recommended)",
-                  "• Campsites spaced 17-22km apart (3,000m - 4,100m altitude)",
-                  "• Daily travel time: 6-8 hours between camps"
-                ]
-              },
-              {
-                "type": "section",
-                "title": "Why Use Local Guides",
-                "content": [
-                  "• Ensure safety in complex terrain",
-                  "• Cultural interpretation and local interactions",
-                  "• Wildlife expertise (Ethiopian wolf tracking)",
-                  "• Support local economy",
-                  "Services include:",
-                  {
-                    "subitems": [
-                      "Arranging cooks/porters",
-                      "Horse logistics",
-                      "Wildlife spotting assistance"
-                    ]
-                  }
-                ]
-              },
-              {
-                "type": "section",
-                "title": "Classic 3-Day Itinerary",
-                "content": [
-                  {
-                    "type": "ordered-list",
-                    "items": [
-                      {
-                        "day": "Day 1: Web Valley Exploration",
-                        "activities": [
-                          "Start at Dinsho Headquarters",
-                          "4WD through Web Valley",
-                          "See red-hot pokers (May-July)",
-                          "Spot hyraxes & eagles at Web River Gorge",
-                          "Camp at Finch Habera Waterfall"
-                        ]
-                      },
-                      {
-                        "day": "Day 2: Sanetti Plateau & Harenna Forest",
-                        "activities": [
-                          "Dawn Ethiopian wolf watching",
-                          "Visit Tulu Dimtu (4,377m peak)",
-                          "Descend Harenna Escarpment",
-                          "Lunch in Rira village",
-                          "Bamboo forest walk",
-                          "Overnight at Bale Mountain Lodge"
-                        ]
-                      },
-                      {
-                        "day": "Day 3: Deep Forest Exploration",
-                        "activities": [
-                          "Gushuralle Peak hike",
-                          "Bale monkey habitat",
-                          "Coffee harvesting in Manyete",
-                          "Optional lion spotting en route to Delo-Mena"
-                        ]
-                      }
-                    ]
-                  }
-                ]
-              },
-              {
-                "type": "section",
-                "title": "Key Highlights",
-                "content": [
-                  "🌄 Unique Ecosystems: Afroalpine plateau → Cloud forest → Tropical jungle",
-                  "🐾 Wildlife: Ethiopian wolves (85% sighting chance), Mountain nyala, Bale monkeys",
-                  "🥾 Activities:",
-                  {
-                    "subitems": [
-                      "Waterfall hikes",
-                      "Lichen-covered lava formations",
-                      "Birdwatching (400+ species)",
-                      "Cultural coffee experiences"
-                    ]
-                  }
-                ]
-              },
-              {
-                "type": "note",
-                "content": "Best visited October-April for clear skies. Pack warm layers - temperatures range from 5°C (41°F) to below freezing!"
-              }
-            ]
-          }
-        ]
-      },
-      {
-          "tag": "activities_within_park",
-          "patterns": [
-          "What activities are available?", 
-          "Things to do in Bale Mountains", 
-          "Activities within Bale Mountains National Park",
-          "What activities can I do at Baale Mountain Park?",
+      ],
+      "responses": [
+        {
+          "parts": [
+            {
+              "type": "header",
+              "content": "🕰️ Historical Timeline of Bale Mountains"
+            },
+            {
+              "type": "section",
+              "title": "Early Exploration (1899-1930s)",
+              "content": [
+                "• 1899-1901: German naturalist Carlo Von Erlanger first documents giant molerat",
+                "• 1901: French explorer Viscompte du Bourg records elephants/buffalo in Harenna Forest",
+                "• 1931: Goba connected to Addis via telegraph",
+                "• 1935-1941: Italian government establishes stations in Goba/Dinsho"
+              ]
+            },
+            {
+              "type": "section",
+              "title": "Mid-20th Century Observations",
+              "content": [
+                {
+                  "type": "timeline",
+                  "items": [
+                    {
+                      "year": "1950s",
+                      "events": [
+                        "🦌 Finnish geographer Helmer Smels documents:",
+                        " - Disappearance of elephants",
+                        " - Seasonal cattle grazing patterns",
+                        " - Honey gathering traditions"
+                      ]
+                    },
+                    {
+                      "year": "1960s",
+                      "events": [
+                        "🌿 British botanist Herbert Mooney notes:",
+                        " - Growing Rira settlement",
+                        " - 1890s rinderpest epidemic impacts",
+                        " - Temporary pastoral dwellings"
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "section",
+              "title": "Conservation Milestones",
+              "content": [
+                {
+                  "type": "list",
+                  "icon": "🛡️",
+                  "items": [
+                    "1963-1965: Dr. Leslie Brown advocates for wildlife protection",
+                    "1969: Official park establishment (400km² initial area)",
+                    "2011: Population reaches 25,900 within park boundaries"
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "summary",
+              "content": [
+                "📜 Historical Summary:",
+                "1. Pre-1950s: Sparsely documented despite early infrastructure",
+                "2. 1900s-1960s: Scientific expeditions reveal ecological changes",
+                "3. Post-1969: Conservation vs agricultural expansion challenges",
+                "4. Present: 250 cattle/km² density in critical wolf habitats"
+              ]
+            },
+            {
+              "type": "note",
+              "content": "🌱 Current Status: 3,700+ households within park boundaries - ongoing balance between preservation and community needs"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "tag": "trip_itineraries",
+      "patterns": [
+        "Suggest a trip itinerary for Bale Mountains",
+        "What are the recommended itineraries?",
+        "Can you provide a 3-day itinerary for Bale Mountains?"
+      ],
+      "responses": [
+        {
+          "parts": [
+            {
+              "type": "header",
+              "content": "Bale Mountains National Park Itineraries"
+            },
+            {
+              "type": "section",
+              "title": "Customizable Tours",
+              "content": [
+                "• Tours can be tailored by local guides or Addis-based companies",
+                "• Choose between hiking or horseback riding (packhorses recommended)",
+                "• Campsites spaced 17-22km apart (3,000m - 4,100m altitude)",
+                "• Daily travel time: 6-8 hours between camps"
+              ]
+            },
+            {
+              "type": "section",
+              "title": "Why Use Local Guides",
+              "content": [
+                "• Ensure safety in complex terrain",
+                "• Cultural interpretation and local interactions",
+                "• Wildlife expertise (Ethiopian wolf tracking)",
+                "• Support local economy",
+                "Services include:",
+                {
+                  "subitems": [
+                    "Arranging cooks/porters",
+                    "Horse logistics",
+                    "Wildlife spotting assistance"
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "section",
+              "title": "Classic 3-Day Itinerary",
+              "content": [
+                {
+                  "type": "ordered-list",
+                  "items": [
+                    {
+                      "day": "Day 1: Web Valley Exploration",
+                      "activities": [
+                        "Start at Dinsho Headquarters",
+                        "4WD through Web Valley",
+                        "See red-hot pokers (May-July)",
+                        "Spot hyraxes & eagles at Web River Gorge",
+                        "Camp at Finch Habera Waterfall"
+                      ]
+                    },
+                    {
+                      "day": "Day 2: Sanetti Plateau & Harenna Forest",
+                      "activities": [
+                        "Dawn Ethiopian wolf watching",
+                        "Visit Tulu Dimtu (4,377m peak)",
+                        "Descend Harenna Escarpment",
+                        "Lunch in Rira village",
+                        "Bamboo forest walk",
+                        "Overnight at Bale Mountain Lodge"
+                      ]
+                    },
+                    {
+                      "day": "Day 3: Deep Forest Exploration",
+                      "activities": [
+                        "Gushuralle Peak hike",
+                        "Bale monkey habitat",
+                        "Coffee harvesting in Manyete",
+                        "Optional lion spotting en route to Delo-Mena"
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "section",
+              "title": "Key Highlights",
+              "content": [
+                "🌄 Unique Ecosystems: Afroalpine plateau → Cloud forest → Tropical jungle",
+                "🐾 Wildlife: Ethiopian wolves (85% sighting chance), Mountain nyala, Bale monkeys",
+                "🥾 Activities:",
+                {
+                  "subitems": [
+                    "Waterfall hikes",
+                    "Lichen-covered lava formations",
+                    "Birdwatching (400+ species)",
+                    "Cultural coffee experiences"
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "note",
+              "content": "Best visited October-April for clear skies. Pack warm layers - temperatures range from 5°C (41°F) to below freezing!"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "tag": "activities_within_park",
+      "patterns": [
+        "What activities are available?",
+        "Things to do in Bale Mountains",
+        "Activities within Bale Mountains National Park",
+        "What activities can I do at Baale Mountain Park?",
         "Tell me about the activities at the park.",
         "What can I do at Baale Mountain?",
         "Are there any activities in the park?",
         "What activities are available at Baale Mountain Park?",
         "What should I do in the park?",
         "What can I experience at Baale Mountain Park?"
-           ],
-          "responses": [
+      ],
+      "responses": [
+        {
+          "parts": [
             {
-              "parts": [
-                {
-                  "type": "header",
-                  "content": "Activities Within the Park\n\n"
-                },
-                {
-                  "type": "text",
-                  "content": "In addition to general sight seeing and trekking, there are many day hikes and activities to explore within the park:\n"
-                },
-                {
-                  "type": "list",
-                  "content": [
-                    "Trekking"
-                  ]
-                },
-                {
-                  "type": "list",
-                  "content": [
-                    "Birding"
-                  ]
-                },
-                {
-                  "type": "list",
-                  "content": [
-                    "Fishing"
-                  ]
-                },
-                {
-                  "type": "list",
-                  "content": [
-                    "Manyete: Wild Forest Coffee Village"
-                  ]
-                },
-                {
-                  "type": "list",
-                  "content": [
-                    "Harvesting Honey with the Locals"
-                  ]
-                },
-                {
-                  "type": "list",
-                  "content": [
-                    "Park Headquarters Walk"
-                  ]
-                },
-                {
-                  "type": "list",
-                  "content": [
-                    "Gushuralle Peak Forest Forest Trail"
-                  ]
-                },
-                {
-                  "type": "list",
-                  "content": [
-                    "Harenna Bamboo and Waterfall Trail"
-                  ]
-                },
-                {
-                  "type": "list",
-                  "content": [
-                    "Web Valley Walks"
-                  ]
-                },
-                {
-                  "type": "list",
-                  "content": [
-                    "Gasuray Gorge"
-                  ]
-                }
-                
+              "type": "header",
+              "content": "Activities Within the Park\n\n"
+            },
+            {
+              "type": "text",
+              "content": "In addition to general sight seeing and trekking, there are many day hikes and activities to explore within the park:\n"
+            },
+            {
+              "type": "list",
+              "content": [
+                "Trekking"
               ]
-          }
-        ]
-      },
-      {
-          "tag": "nearby_attractions",
-          "patterns": [
-          "What are the nearby attractions?",
-          "Places to visit near Bale Mountains", 
-          "Nearby tourist spots",
-          "What are the nearby attractions to Baale Mountain Park?",
+            },
+            {
+              "type": "list",
+              "content": [
+                "Birding"
+              ]
+            },
+            {
+              "type": "list",
+              "content": [
+                "Fishing"
+              ]
+            },
+            {
+              "type": "list",
+              "content": [
+                "Manyete: Wild Forest Coffee Village"
+              ]
+            },
+            {
+              "type": "list",
+              "content": [
+                "Harvesting Honey with the Locals"
+              ]
+            },
+            {
+              "type": "list",
+              "content": [
+                "Park Headquarters Walk"
+              ]
+            },
+            {
+              "type": "list",
+              "content": [
+                "Gushuralle Peak Forest Forest Trail"
+              ]
+            },
+            {
+              "type": "list",
+              "content": [
+                "Harenna Bamboo and Waterfall Trail"
+              ]
+            },
+            {
+              "type": "list",
+              "content": [
+                "Web Valley Walks"
+              ]
+            },
+            {
+              "type": "list",
+              "content": [
+                "Gasuray Gorge"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "tag": "nearby_attractions",
+      "patterns": [
+        "What are the nearby attractions?",
+        "Places to visit near Bale Mountains",
+        "Nearby tourist spots",
+        "What are the nearby attractions to Baale Mountain Park?",
         "Are there any attractions close to Baale Mountain?",
         "Tell me about nearby places around Baale Mountain Park.",
         "What attractions can I visit near Baale Mountain?",
         "Are there any places of interest near Baale Mountain?",
         "Can you suggest attractions near the park?",
         "What should I see around Baale Mountain Park?"
-        ],
-          "responses": [
+      ],
+      "responses": [
+        {
+          "parts": [
             {
-              "parts": [
-                {
-                  "type": "header",
-                  "content": "Nearby Attractions.\n\n"
-                },
-                {
-                  "type": "subheader",
-                  "content": "Dire Sheik Hussein:\n"
-                },
-                {
-                  "type": "text",
-                  "content": "Located 180 km from the Bale Mountains National Park, the shrine of Sheik Hussein is a significant religious site named after Sheik Hussein Bin Malka, a respected Muslim holy man known for his teachings and miraculous deeds. He is believed to have lived for 250 years, with 70 of those years spent at the shrine. Thousands of pilgrims visit twice a year — in June for his death anniversary and in October to celebrate the birth of Prophet Mohammed. The shrine is surrounded by whitewashed walls, with holy water believed to have healing powers nearby. Visitors must follow a dress code and remove their shoes before entering.\n\n"
-                },
-                {
-                  "type": "subheader",
-                  "content": "Sof-Omar Caves:\n"
-                },
-                {
-                  "type": "text",
-                  "content": "Located 115 km from the Bale Mountains headquarters, the Sof-Omar caves are the longest underground caves in Africa, stretching over 1.5 km. The caves were formed by the Web River, creating stunning limestone structures and deep gorges. A full walk through the caves takes 3–4 hours, with sections of waist-deep water during certain months. The caves are a place of worship for Ethiopian Muslims, with two annual festivals drawing around 1,000 people. The surrounding area is rich in wildlife like monkeys, dik-diks, and over 50 bird species.\n\n"
-                },
-                {
-                  "type": "subheader",
-                  "content": "Wabe Shebele Gorge:\n"
-                },
-                {
-                  "type": "text",
-                  "content": "The Wabe Shebele Gorge is one of Ethiopia’s most dramatic landscapes, with breathtaking views and winding roads that descend into vast lowlands 1,000 meters below. The road through the gorge offers fantastic views and encounters with wildlife such as rock hyrax, klipspringers, and leopards. Camping is possible in certain areas along the route.\n"
-                },
-                {
-                  "type": "subheader",
-                  "content": "Gasera Gorge:\n"
-                },
-                {
-                  "type": "text",
-                  "content": "Carved by the Wabe Shebele River, the Gasera Gorge is one of the most beautiful spots in Bale. Visitors can spot bearded vultures flying overhead and meet the Werdube tribes known for swimming and planting fruits along the riverbanks. The best way to explore the gorge is to take the new gravel road from Gasera town toward Endeto.\n"
-                }
+              "type": "header",
+              "content": "Nearby Attractions.\n\n"
+            },
+            {
+              "type": "subheader",
+              "content": "Dire Sheik Hussein:\n"
+            },
+            {
+              "type": "text",
+              "content": "Located 180 km from the Bale Mountains National Park, the shrine of Sheik Hussein is a significant religious site named after Sheik Hussein Bin Malka, a respected Muslim holy man known for his teachings and miraculous deeds. He is believed to have lived for 250 years, with 70 of those years spent at the shrine. Thousands of pilgrims visit twice a year — in June for his death anniversary and in October to celebrate the birth of Prophet Mohammed. The shrine is surrounded by whitewashed walls, with holy water believed to have healing powers nearby. Visitors must follow a dress code and remove their shoes before entering.\n\n"
+            },
+            {
+              "type": "subheader",
+              "content": "Sof-Omar Caves:\n"
+            },
+            {
+              "type": "text",
+              "content": "Located 115 km from the Bale Mountains headquarters, the Sof-Omar caves are the longest underground caves in Africa, stretching over 1.5 km. The caves were formed by the Web River, creating stunning limestone structures and deep gorges. A full walk through the caves takes 3–4 hours, with sections of waist-deep water during certain months. The caves are a place of worship for Ethiopian Muslims, with two annual festivals drawing around 1,000 people. The surrounding area is rich in wildlife like monkeys, dik-diks, and over 50 bird species.\n\n"
+            },
+            {
+              "type": "subheader",
+              "content": "Wabe Shebele Gorge:\n"
+            },
+            {
+              "type": "text",
+              "content": "The Wabe Shebele Gorge is one of Ethiopia’s most dramatic landscapes, with breathtaking views and winding roads that descend into vast lowlands 1,000 meters below. The road through the gorge offers fantastic views and encounters with wildlife such as rock hyrax, klipspringers, and leopards. Camping is possible in certain areas along the route.\n"
+            },
+            {
+              "type": "subheader",
+              "content": "Gasera Gorge:\n"
+            },
+            {
+              "type": "text",
+              "content": "Carved by the Wabe Shebele River, the Gasera Gorge is one of the most beautiful spots in Bale. Visitors can spot bearded vultures flying overhead and meet the Werdube tribes known for swimming and planting fruits along the riverbanks. The best way to explore the gorge is to take the new gravel road from Gasera town toward Endeto.\n"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "tag": "lodging",
+      "patterns": [
+        "Where can I stay?",
+        "Accommodation options in Bale Mountains",
+        "Is there lodging in the park?"
+      ],
+      "responses": [
+        {
+          "parts": [
+            {
+              "type": "header",
+              "content": "lodging\n\n"
+            },
+            {
+              "type": "strong",
+              "content": "Accommodation at Bale Mountains National Park (BMNP) Headquarters, Dinsho:\n"
+            },
+            {
+              "type": "list",
+              "content": [
+                "The Dinsho Lodge is currently closed, with hopes to reopen soon. For updates, email info@balemountains.org.\n"
               ]
-          }
-        ]
-      },
-      {
-          "tag": "lodging",
-          "patterns": ["Where can I stay?",
-           "Accommodation options in Bale Mountains", 
-           "Is there lodging in the park?"],
-          "responses": [
+            },
             {
-              "parts": [
-                {
-                  "type": "header",
-                  "content": "lodging\n\n"
-                },
-                {
-                  "type": "strong",
-                  "content": "Accommodation at Bale Mountains National Park (BMNP) Headquarters, Dinsho:\n"
-                },
-                {
-                  "type": "list",
-                  "content": [
-                    "The Dinsho Lodge is currently closed, with hopes to reopen soon. For updates, email info@balemountains.org.\n"
-                  ]
-                },
-                {
-                  "type": "list",
-                  "content": [
-                    "Camping at Dinsho is available with basic facilities like a kitchen, toilets, and a shower.\n"
-                  ]
-                },
-                {
-                  "type": "strong",
-                  "content": "Accommodation in the Harenna Forest - Bale Mountain Lodge:\n"
-                },
-                {
-                  "type": "list",
-                  "content": [
-                    "The Bale Mountain Lodge is the best accommodation in the Bale area, located in the Katcha clearing of the Harenna Forest.\n"
-                  ]
-                },{
-                  "type": "list",
-                  "content": [
-                    "It has 11 double rooms and offers nature-based activities. A resident naturalist is available for guidance.\n"
-                  ]
-                },{
-                  "type": "list",
-                  "content": [
-                    "Booking in advance is required since the lodge is often fully booked.\n"
-                  ]
-                },{
-                  "type": "list",
-                  "content": [
-                    "Contact: www.balemountainlodge.com | Tel: +251 (0)912790802 | E-mail: info@balemountainlodge.com\n"
-                  ]
-                },{
-                  "type": "list",
-                  "content": [
-                    "The lodge is about an 8-hour drive from Addis Ababa, depending on road conditions and stops.\n"
-                  ]
-                },
-                {
-                  "type": "strong",
-                  "content": "Accommodation in Goba\n"
-                },
-                {
-                  "type": "list",
-                  "content": [
-                    "The Wabe Shebelle Hotel in Goba is the best option for staying near the Goba/Robe area.\n"
-                  ]
-                },
-                {
-                  "type": "list",
-                  "content": [
-                    "It is located about 40 minutes from Dinsho and the Sanetti Plateau entrance.\n"
-                  ]
-                }
-                
+              "type": "list",
+              "content": [
+                "Camping at Dinsho is available with basic facilities like a kitchen, toilets, and a shower.\n"
               ]
-          }
-        ]
-      },
-      {
-          "tag": "when_to_go",
-          "patterns": ["When is the best time to visit?",
-           "Best time to go to Bale Mountains", 
-           "Season to visit Bale Mountains",
-           "When is the best time to visit Baale Mountain Park?",
-           "What is the best season for Baale Mountain Park?",
-           "When should I visit Baale Mountain?",
-           "Tell me the best time of year for Baale Mountain Park.",
-           "What is the ideal time to go to Baale Mountain?",
-           "When is the peak season for Baale Mountain Park?",
-           "Is there a specific season for visiting Baale Mountain?",
-            "When is the perfect time to visit Baale Mountain?",
-            "What is the best time of year to visit Baale Mountain?",
-            "When should I plan my trip to Baale Mountain?"
-          ],
-          "responses": [
+            },
             {
-              "parts": [
-                {
-                  "type": "header",
-                  "content": "When to Go\n\n"
-                },
-                {
-                  "type": "subheader",
-                  "content": "Weather at Bale Mountains National Park (BMNP)\n"
-                },
-                    {
-                      "type": "list",
-                      "items": [
-                        {
-                          "text": "Temperatures vary greatly across the park\n",
-                          "subitems": [
-                            "Sanetti Plateau: Daytime temperatures are around 5°C (41°F) with strong winds and can drop below freezing at night.\n",
-                            "Northern areas and Harenna Forest: Warmer during the day but still cold at night, sometimes reaching freezing temperatures.\n"
-                          ]
-                        }
-                      ]
-                  },
-                {
-                  "type": "list",
-                  "content": [
-                    "High altitudes (over 3,000m): Night frosts are common, and the climate becomes colder and wetter as the elevation increases.\n"
-                  ]
-                },
-                {
-                  "type": "list",
-                  "content": [
-                    "Rainy Season: May to September, with frequent rain and mist.\n"
-                  ]
-                },
-                {
-                  "type": "list",
-                  "items": [
-                    {
-                      "text": "Best time to visit:\n",
-                      "subitems": [
-                        "May to July – Warm, sunny days with occasional afternoon showers; June is perfect for seeing spring flowers like red-hot pokers.\n",
-                        "October to April – Ideal for trekking with sunny days and clear, starry nights.\n"
-                      ]
-                    }
-  
-               ]
-              }
+              "type": "strong",
+              "content": "Accommodation in the Harenna Forest - Bale Mountain Lodge:\n"
+            },
+            {
+              "type": "list",
+              "content": [
+                "The Bale Mountain Lodge is the best accommodation in the Bale area, located in the Katcha clearing of the Harenna Forest.\n"
+              ]
+            },
+            {
+              "type": "list",
+              "content": [
+                "It has 11 double rooms and offers nature-based activities. A resident naturalist is available for guidance.\n"
+              ]
+            },
+            {
+              "type": "list",
+              "content": [
+                "Booking in advance is required since the lodge is often fully booked.\n"
+              ]
+            },
+            {
+              "type": "list",
+              "content": [
+                "Contact: www.balemountainlodge.com | Tel: +251 (0)912790802 | E-mail: info@balemountainlodge.com\n"
+              ]
+            },
+            {
+              "type": "list",
+              "content": [
+                "The lodge is about an 8-hour drive from Addis Ababa, depending on road conditions and stops.\n"
+              ]
+            },
+            {
+              "type": "strong",
+              "content": "Accommodation in Goba\n"
+            },
+            {
+              "type": "list",
+              "content": [
+                "The Wabe Shebelle Hotel in Goba is the best option for staying near the Goba/Robe area.\n"
+              ]
+            },
+            {
+              "type": "list",
+              "content": [
+                "It is located about 40 minutes from Dinsho and the Sanetti Plateau entrance.\n"
               ]
             }
-         ]
-     },
-     {
+          ]
+        }
+      ]
+    },
+    {
+      "tag": "when_to_go",
+      "patterns": [
+        "When is the best time to visit?",
+        "Best time to go to Bale Mountains",
+        "Season to visit Bale Mountains",
+        "When is the best time to visit Baale Mountain Park?",
+        "What is the best season for Baale Mountain Park?",
+        "When should I visit Baale Mountain?",
+        "Tell me the best time of year for Baale Mountain Park.",
+        "What is the ideal time to go to Baale Mountain?",
+        "When is the peak season for Baale Mountain Park?",
+        "Is there a specific season for visiting Baale Mountain?",
+        "When is the perfect time to visit Baale Mountain?",
+        "What is the best time of year to visit Baale Mountain?",
+        "When should I plan my trip to Baale Mountain?"
+      ],
+      "responses": [
+        {
+          "parts": [
+            {
+              "type": "header",
+              "content": "When to Go\n\n"
+            },
+            {
+              "type": "subheader",
+              "content": "Weather at Bale Mountains National Park (BMNP)\n"
+            },
+            {
+              "type": "list",
+              "items": [
+                {
+                  "text": "Temperatures vary greatly across the park\n",
+                  "subitems": [
+                    "Sanetti Plateau: Daytime temperatures are around 5°C (41°F) with strong winds and can drop below freezing at night.\n",
+                    "Northern areas and Harenna Forest: Warmer during the day but still cold at night, sometimes reaching freezing temperatures.\n"
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "list",
+              "content": [
+                "High altitudes (over 3,000m): Night frosts are common, and the climate becomes colder and wetter as the elevation increases.\n"
+              ]
+            },
+            {
+              "type": "list",
+              "content": [
+                "Rainy Season: May to September, with frequent rain and mist.\n"
+              ]
+            },
+            {
+              "type": "list",
+              "items": [
+                {
+                  "text": "Best time to visit:\n",
+                  "subitems": [
+                    "May to July – Warm, sunny days with occasional afternoon showers; June is perfect for seeing spring flowers like red-hot pokers.\n",
+                    "October to April – Ideal for trekking with sunny days and clear, starry nights.\n"
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
       "tag": "what_to_bring",
-      "patterns": 
-      [    
-      "What should I bring?",
-       "Packing list for Bale Mountains", 
-       "What do I need for a trip to Bale Mountains?",
-       "What should I bring to Baale Mountain Park?",
+      "patterns": [
+        "What should I bring?",
+        "Packing list for Bale Mountains",
+        "What do I need for a trip to Bale Mountains?",
+        "What should I bring to Baale Mountain Park?",
         "What are the essentials to take to Baale Mountain?",
         "What do I need to bring to visit Baale Mountain Park?",
         "Tell me what I should pack for Baale Mountain Park.",
@@ -598,17 +748,18 @@
                   ]
                 }
               ]
-             }
-
+            }
           ]
         }
       ]
-     },
-     {
+    },
+    {
       "tag": "health_and_safety",
-    "patterns": ["Is it safe to visit Bale Mountains?", 
-                 "Health and safety tips", 
-                 "Any safety precautions?"],
+      "patterns": [
+        "Is it safe to visit Bale Mountains?",
+        "Health and safety tips",
+        "Any safety precautions?"
+      ],
       "responses": [
         {
           "parts": [
@@ -629,8 +780,8 @@
                   ]
                 }
               ]
-           },
-           {
+            },
+            {
               "type": "list",
               "items": [
                 {
@@ -640,8 +791,8 @@
                   ]
                 }
               ]
-           },
-           {
+            },
+            {
               "type": "list",
               "items": [
                 {
@@ -651,8 +802,8 @@
                   ]
                 }
               ]
-           },
-           {
+            },
+            {
               "type": "list",
               "items": [
                 {
@@ -663,26 +814,26 @@
                   ]
                 }
               ]
-           }
+            }
           ]
-      }
-    ]
-  },
-  {
+        }
+      ]
+    },
+    {
       "tag": "park_fees",
       "patterns": [
-      "What are the park fees?",
-      "Entry fee for Bale Mountains",
-      "How much does it cost to enter the park?",
-      "How much is the entrance fee for Baale Mountain Park?",
-      "What is the park fee for Baale Mountain?",
-      "How much does it cost to visit Baale Mountain Park?",
-      "Tell me about the entrance fee for Baale Mountain Park.",
-      "What is the cost of visiting Baale Mountain?",
-      "Can you tell me the park entrance fee?",
-      "How much do I need to pay to enter Baale Mountain Park?",
-      "What are the fees for visiting Baale Mountain Park?"
-  ],
+        "What are the park fees?",
+        "Entry fee for Bale Mountains",
+        "How much does it cost to enter the park?",
+        "How much is the entrance fee for Baale Mountain Park?",
+        "What is the park fee for Baale Mountain?",
+        "How much does it cost to visit Baale Mountain Park?",
+        "Tell me about the entrance fee for Baale Mountain Park.",
+        "What is the cost of visiting Baale Mountain?",
+        "Can you tell me the park entrance fee?",
+        "How much do I need to pay to enter Baale Mountain Park?",
+        "What are the fees for visiting Baale Mountain Park?"
+      ],
       "responses": [
         {
           "parts": [
@@ -711,7 +862,8 @@
               "content": [
                 "Receipt: Always collect a receipt—park scouts may ask for it during your visit.\n"
               ]
-            },{
+            },
+            {
               "type": "list",
               "content": [
                 "Penalty Fees: Failure to pay results in fines: 300 Birr per person and 400 Birr per vehicle.\n"
@@ -723,15 +875,47 @@
             },
             {
               "type": "table",
-              "columns": ["Nationality", "age", "Fee(Birr)"],
+              "columns": [
+                "Nationality",
+                "age",
+                "Fee(Birr)"
+              ],
               "rows": [
-                ["Ethiopian Tourist","12 years and above","20"],
-                [" ","Less than 12 years","10"],
-                ["Students","Any age","10"],
-                ["foreign resident Tourist","12 years and above","50"],
-                [" ","Less than 12 years","10"],
-                ["Foreign Tourist","12 years and above","90"],
-                [" ","Less than 12 years","10"]
+                [
+                  "Ethiopian Tourist",
+                  "12 years and above",
+                  "20"
+                ],
+                [
+                  " ",
+                  "Less than 12 years",
+                  "10"
+                ],
+                [
+                  "Students",
+                  "Any age",
+                  "10"
+                ],
+                [
+                  "foreign resident Tourist",
+                  "12 years and above",
+                  "50"
+                ],
+                [
+                  " ",
+                  "Less than 12 years",
+                  "10"
+                ],
+                [
+                  "Foreign Tourist",
+                  "12 years and above",
+                  "90"
+                ],
+                [
+                  " ",
+                  "Less than 12 years",
+                  "10"
+                ]
               ]
             },
             {
@@ -740,11 +924,25 @@
             },
             {
               "type": "table",
-              "columns": ["Vehicle Capacity","Ethiopian Tourist","Foreign Resident Tourist",	"Foreign Tourist"],
+              "columns": [
+                "Vehicle Capacity",
+                "Ethiopian Tourist",
+                "Foreign Resident Tourist",
+                "Foreign Tourist"
+              ],
               "rows": [
-                ["Up to 12 seats","10 Birr","15 Birr","20 Birr"],
-                ["Greater than 12 seats","15 Birr","30 Birr","40 Birr"]
-          
+                [
+                  "Up to 12 seats",
+                  "10 Birr",
+                  "15 Birr",
+                  "20 Birr"
+                ],
+                [
+                  "Greater than 12 seats",
+                  "15 Birr",
+                  "30 Birr",
+                  "40 Birr"
+                ]
               ]
             },
             {
@@ -753,24 +951,40 @@
             },
             {
               "type": "table",
-              "columns": ["Nationality",	"Up to 4-person tent",	"More than 4-person tent"],
+              "columns": [
+                "Nationality",
+                "Up to 4-person tent",
+                "More than 4-person tent"
+              ],
               "rows": [
-                ["Ethiopian Tourist","10 Birr",	"15 Birr"],
-                ["Foreign Resident Tourist","30 Birr","40 Birr"],
-                ["Foreign Tourist",	"40 Birr",	"60 Birr"]
+                [
+                  "Ethiopian Tourist",
+                  "10 Birr",
+                  "15 Birr"
+                ],
+                [
+                  "Foreign Resident Tourist",
+                  "30 Birr",
+                  "40 Birr"
+                ],
+                [
+                  "Foreign Tourist",
+                  "40 Birr",
+                  "60 Birr"
+                ]
               ]
             }
           ]
-      }
-    ]
-  },
-  {
-      
-    "tag": "bmn_service_provider",
-    "patterns": ["Who provides services in the park?",
-     "Tour operators in Bale Mountains", 
-     "Guides and services in Bale Mountains",
-     "What services are provided at Baale Mountain Park?",
+        }
+      ]
+    },
+    {
+      "tag": "bmn_service_provider",
+      "patterns": [
+        "Who provides services in the park?",
+        "Tour operators in Bale Mountains",
+        "Guides and services in Bale Mountains",
+        "What services are provided at Baale Mountain Park?",
         "Can you tell me about the services available at Baale Mountain Park?",
         "What facilities does Baale Mountain Park offer?",
         "Are there any services available at Baale Mountain?",
@@ -778,7 +992,7 @@
         "Does Baale Mountain Park offer guided tours?",
         "What kind of services can I expect at Baale Mountain Park?",
         "Who are the service providers in Baale Mountain Park?"
-    ],
+      ],
       "responses": [
         {
           "parts": [
@@ -832,12 +1046,11 @@
                 "Sankate Association: Based in Manyate village, it offers local guides, coffee ceremonies, wild honey, crafts, and a campground with facilities.\n"
               ]
             }
-
           ]
-      }
-    ]
-  },
-  {
+        }
+      ]
+    },
+    {
       "tag": "travel_directory",
       "patterns": [
         "Tell me about the travel directory",
@@ -906,576 +1119,639 @@
                 "Local Markets: Various towns like Adaba-Dodola, Dire Sheik Hussein, and Negele-Borena host markets on different days throughout the week.\n"
               ]
             }
-            
-          ]
-      }
-    ]
-  },
-  {
-    "tag": "weather",
-    "patterns": [
-      "What's the weather like?",
-      "Current weather conditions",
-      "Is it going to rain today?",
-      "How's the weather in Bale Mountains?"
-    ],
-    "responses": [
-      {
-        "parts": [
-          {
-            "type": "header",
-            "content": "Current Weather"
-          },
-          {
-            "type": "weather",
-            "location": "Bale Mountains"
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "tag": "GetParkParts",
-    "patterns": [
-      "What are the parts of Baale Mountain Park?",
-      "Tell me the different sections of Baale Mountain Park",
-      "Which parts make up Baale Mountain Park?",
-      "What are the main areas in Baale Mountain Park?",
-      "Can you list the parts of Baale Mountain?"
-    ],
-    "responses":[
-    {
-      "parts": [
-        {
-          "type": "header",
-          "content": "Parts of the Park\n\n"
-        },
-        {
-          "type": "text",
-          "content": "Baale Mountain Park is divided into several key areas, including:"
-        },
-        {
-          "type": "list",
-          "content": [
-            "Harenna Forest",
-            "Afroalpine Meadows (Sanetti Plateau & Upper Web Valley)",
-            "Erica Belt",
-            "Juniper Woodlands (near the Park Headquarters)",
-            "and Northern Grasslands (Gaysay Grasslands)."
-
           ]
         }
       ]
-    }
-    ]
-  },
-  {
-    "tag": "GetHarennaForestInformation",
-    "patterns": [
-      "Tell me about Harenna Forest",
-      "What is Harenna Forest like?",
-      "Describe Harenna Forest",
-      "What can I see in Harenna Forest?"
-    ],
-    "responses" : [
-      {
-        "parts": [
-          {
-            "type": "header",
-            "content": "Harenna Forest Information\n\n"
-          },
-          {
-            "type": "text",
-            "content": "The Harenna Forest, located in the southern part of Baale Mountain Park, is the second-largest forest in Ethiopia and the largest cloud forest in the country. Together with the nearby state- and community-managed forests, it covers over 4,000 km². The road from the plateau descends the Harenna escarpment, leading into the dense forest. \n\nThe upper part of the Harenna Forest is a wet cloud forest, home to an extensive bamboo belt, especially in the steeper areas. On the road, you’ll also find Rubus steuderi, a plant from the blackberry family, which blooms from April to June. As you descend to around 2,200 meters, the terrain becomes gentler, and large trees—up to 30 meters tall—become more common. These trees include fern pines (Podocarpus gracilior) and fig trees (Ficus spp.), both of which are covered in dense epiphytes. Wild forest coffee (Arabica sp.) thrives in the lower parts of the forest. \n\nThe dense nature of the forest means that animals can easily remain hidden. Common species include the black-and-white colobus monkey, olive baboon, warthog, and Menelik’s bushbuck. With some luck, you might spot a giant forest hog, bush pig, or the endemic Bale monkey. The clearings in the forest are good places to look for larger predators such as lions, leopards, and African wild dogs. Nocturnal animals like genet, civet, porcupine, and hyena are also present. \n\nBirdlife in the Harenna Forest is equally elusive. Look out for the Abyssinian hill babbler, Abyssinian crimson-wing, Ayre’s hawk eagle, silvery-cheeked hornbill, black-winged lovebird, Abyssinian oriole, yellow-fronted parrot, white-cheeked turaco, and narina trogon. The forest is also home to many migrant bird species, including Palearctic warblers."
-        
-          }
-        ]  
-      }
-    ]
-  },
-  {
-    "tag": "Get Northern Grasslands (Gaysay Grasslands) Information",
-    "patterns": [
-      "Tell me about Northern Grasslands",
-      "What is Northern Grasslands like?",
-      "Describe Northern Grasslands",
-      "What can I see in Northern Grasslands?"
-    ],
-    "responses" : [
-      {
-        "parts": [
-          {
-            "type": "header",
-            "content": "Northern Grasslands (Gaysay Grasslands)\n\n"
-          },
-          {
-            "type": "text",
-            "content": "The Northern Grasslands, also known as the Gaysay Grasslands, are located between the Web and Danka Rivers, south of Bodeti Mountain, north of Adelay Ridge, and northwest of Dinsho. The altitude in this area ranges from 3,000 meters to 3,500 meters, which marks the upper limit for tree growth. The terrain is mostly flat, covered by swamp grasses and sedges, particularly from the Cyperus and Scirpus genera. During the rainy season, the land becomes muddy.\n\nIn higher areas, the vegetation consists of scrubby plants, including African or wild wormwood (Artemisia afra) and Cape gold (Helichrysum splendidum), which is one of over ten species of everlasting flowers found in the park. These plants are crucial for both food and shelter for the mountain nyala and other wildlife. Hagenia abyssinica trees bloom from November to February, with female trees showing vibrant red flowers. Wild fennel is also common in this area.\n\nThe Northern Grasslands are an ideal location for observing the endemic mountain nyala, with herds sometimes reaching up to 50 individuals. The bohor reedbuck is also frequently seen here and plays a key role in the ecosystem as the primary grazer in this region. Other mammals commonly found include warthogs, grey duikers, servals, golden jackals, and spotted hyenas (particularly at night).\n\nBird species that can be spotted in the Northern Grasslands include the Abyssinian longclaw, winding cisticola, marsh harrier, Abyssinian ground hornbill, spot-breasted plover, Rouget’s rail, wattled ibis, and Abyssinian catbird, among others."          
-          }
-        ]  
-      }
-    ]
-  },
-  {
-    "tag": "GetJuniperWoodlandsInformation",
-    "patterns": [  
-    "Tell me about Juniper Woodlands",
-    "What can I find in the Juniper Woodlands?",
-    "Describe the Juniper Woodlands",
-    "What is the Juniper Woodlands like?"
-],
-    "responses": [
-      {
-        "parts": [
-          {
-            "type": "header",
-            "content": "Juniper Woodlands (Park Headquarters)\n\n"
-          },
-          {
-            "type": "text",
-            "content": "The Juniper Woodlands cover the northern slopes of the Bale Mountains, stretching from Dodola to Dinsho. These woodlands are under significant pressure due to grazing, which prevents the natural growth of young trees."
-          },
-          {
-            "type": "list",
-            "items": [
-              {
-                "text": "The area is dominated by two main tree species:\n",
-                "subitems": [
-                  "African juniper (Juniperus procera), which tends to grow smaller in the upper areas of the park.",
-                  "Hagenia abyssinica, which can grow into large, impressive trees and blooms between November and February."
-                  
+    },
+    {
+      "tag": "weather",
+      "patterns": [
+        "What's the weather like?",
+        "Current weather conditions",
+        "Is it going to rain today?",
+        "How's the weather in Bale Mountains?"
+      ],
+      "responses": [
+        {
+          "parts": [
+            {
+              "type": "header",
+              "content": "Current Weather"
+            },
+            {
+              "type": "weather",
+              "location": "Bale Mountains"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "tag": "GetParkParts",
+      "patterns": [
+        "What are the parts of Baale Mountain Park?",
+        "Tell me the different sections of Baale Mountain Park",
+        "Which parts make up Baale Mountain Park?",
+        "What are the main areas in Baale Mountain Park?",
+        "Can you list the parts of Baale Mountain?"
+      ],
+      "responses": [
+        {
+          "parts": [
+            {
+              "type": "header",
+              "content": "Parts of the Park\n\n"
+            },
+            {
+              "type": "text",
+              "content": "Baale Mountain Park is divided into several key areas, including:"
+            },
+            {
+              "type": "list",
+              "content": [
+                "Harenna Forest",
+                "Afroalpine Meadows (Sanetti Plateau & Upper Web Valley)",
+                "Erica Belt",
+                "Juniper Woodlands (near the Park Headquarters)",
+                "and Northern Grasslands (Gaysay Grasslands)."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "tag": "GetHarennaForestInformation",
+      "patterns": [
+        "Tell me about Harenna Forest",
+        "What is Harenna Forest like?",
+        "Describe Harenna Forest",
+        "What can I see in Harenna Forest?"
+      ],
+      "responses": [
+        {
+          "parts": [
+            {
+              "type": "header",
+              "content": "Harenna Forest Information\n\n"
+            },
+            {
+              "type": "text",
+              "content": "The Harenna Forest, located in the southern part of Baale Mountain Park, is the second-largest forest in Ethiopia and the largest cloud forest in the country. Together with the nearby state- and community-managed forests, it covers over 4,000 km². The road from the plateau descends the Harenna escarpment, leading into the dense forest. \n\nThe upper part of the Harenna Forest is a wet cloud forest, home to an extensive bamboo belt, especially in the steeper areas. On the road, you’ll also find Rubus steuderi, a plant from the blackberry family, which blooms from April to June. As you descend to around 2,200 meters, the terrain becomes gentler, and large trees—up to 30 meters tall—become more common. These trees include fern pines (Podocarpus gracilior) and fig trees (Ficus spp.), both of which are covered in dense epiphytes. Wild forest coffee (Arabica sp.) thrives in the lower parts of the forest. \n\nThe dense nature of the forest means that animals can easily remain hidden. Common species include the black-and-white colobus monkey, olive baboon, warthog, and Menelik’s bushbuck. With some luck, you might spot a giant forest hog, bush pig, or the endemic Bale monkey. The clearings in the forest are good places to look for larger predators such as lions, leopards, and African wild dogs. Nocturnal animals like genet, civet, porcupine, and hyena are also present. \n\nBirdlife in the Harenna Forest is equally elusive. Look out for the Abyssinian hill babbler, Abyssinian crimson-wing, Ayre’s hawk eagle, silvery-cheeked hornbill, black-winged lovebird, Abyssinian oriole, yellow-fronted parrot, white-cheeked turaco, and narina trogon. The forest is also home to many migrant bird species, including Palearctic warblers."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "tag": "Get Northern Grasslands (Gaysay Grasslands) Information",
+      "patterns": [
+        "Tell me about Northern Grasslands",
+        "What is Northern Grasslands like?",
+        "Describe Northern Grasslands",
+        "What can I see in Northern Grasslands?"
+      ],
+      "responses": [
+        {
+          "parts": [
+            {
+              "type": "header",
+              "content": "Northern Grasslands (Gaysay Grasslands)\n\n"
+            },
+            {
+              "type": "text",
+              "content": "The Northern Grasslands, also known as the Gaysay Grasslands, are located between the Web and Danka Rivers, south of Bodeti Mountain, north of Adelay Ridge, and northwest of Dinsho. The altitude in this area ranges from 3,000 meters to 3,500 meters, which marks the upper limit for tree growth. The terrain is mostly flat, covered by swamp grasses and sedges, particularly from the Cyperus and Scirpus genera. During the rainy season, the land becomes muddy.\n\nIn higher areas, the vegetation consists of scrubby plants, including African or wild wormwood (Artemisia afra) and Cape gold (Helichrysum splendidum), which is one of over ten species of everlasting flowers found in the park. These plants are crucial for both food and shelter for the mountain nyala and other wildlife. Hagenia abyssinica trees bloom from November to February, with female trees showing vibrant red flowers. Wild fennel is also common in this area.\n\nThe Northern Grasslands are an ideal location for observing the endemic mountain nyala, with herds sometimes reaching up to 50 individuals. The bohor reedbuck is also frequently seen here and plays a key role in the ecosystem as the primary grazer in this region. Other mammals commonly found include warthogs, grey duikers, servals, golden jackals, and spotted hyenas (particularly at night).\n\nBird species that can be spotted in the Northern Grasslands include the Abyssinian longclaw, winding cisticola, marsh harrier, Abyssinian ground hornbill, spot-breasted plover, Rouget’s rail, wattled ibis, and Abyssinian catbird, among others."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "tag": "GetJuniperWoodlandsInformation",
+      "patterns": [
+        "Tell me about Juniper Woodlands",
+        "What can I find in the Juniper Woodlands?",
+        "Describe the Juniper Woodlands",
+        "What is the Juniper Woodlands like?"
+      ],
+      "responses": [
+        {
+          "parts": [
+            {
+              "type": "header",
+              "content": "Juniper Woodlands (Park Headquarters)\n\n"
+            },
+            {
+              "type": "text",
+              "content": "The Juniper Woodlands cover the northern slopes of the Bale Mountains, stretching from Dodola to Dinsho. These woodlands are under significant pressure due to grazing, which prevents the natural growth of young trees."
+            },
+            {
+              "type": "list",
+              "items": [
+                {
+                  "text": "The area is dominated by two main tree species:\n",
+                  "subitems": [
+                    "African juniper (Juniperus procera), which tends to grow smaller in the upper areas of the park.",
+                    "Hagenia abyssinica, which can grow into large, impressive trees and blooms between November and February."
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "tag": "GetAfroalpineMeadowsInformation",
+      "patterns": [
+        "What are the Afroalpine Meadows like?",
+        "Tell me about the Afroalpine Meadows",
+        "What can I see in the Afroalpine Meadows?",
+        "Describe the Afroalpine Meadows area"
+      ],
+      "responses": [
+        {
+          "parts": [
+            {
+              "type": "header",
+              "content": "Afroalpine Meadows (Sanetti Plateau & Upper Web Valley)"
+            },
+            {
+              "type": "text",
+              "content": "The Sanetti Plateau, sitting at an extremely high altitude, is one of the most remarkable areas of the Bale Mountains National Park. Plant life here is limited due to the cold climate, but one iconic species stands out — the giant lobelia, which can grow up to 6 meters tall between elevations of 3,100m to 4,377m. This plateau is also home to Tulu Dimtu, the second highest peak in Ethiopia, standing at 4,377 meters, making it the highest point in the Bale Mountains.\n\n"
+            },
+            {
+              "type": "subheader",
+              "content": "Wildlife of the Afroalpine Meadows"
+            },
+            {
+              "type": "text",
+              "content": "Despite the harsh conditions, the plateau supports an incredible density of rodents — up to 2,500 kg per square kilometer! These small mammals, including mice, rats, and mole rats, dominate the landscape. One unique species to look for is the giant molerat*, which is found only in the Bale Mountains."
+            },
+            {
+              "type": "list",
+              "items": [
+                {
+                  "text": "Other notable animals include:",
+                  "subitems": [
+                    "Rock hyrax",
+                    "Starck’s hare*"
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "subheader",
+              "content": "Birds of the Plateau"
+            },
+            {
+              "type": "list",
+              "items": [
+                {
+                  "text": "The plateau’s rich rodent population attracts a variety of birds of prey, including:",
+                  "subitems": [
+                    "Augur buzzard",
+                    "Verreaux’s eagle",
+                    "Tawny eagle",
+                    "Steppe eagle",
+                    "Lanner falcon",
+                    "Kestrel",
+                    "Lammergeyer (bearded vulture)"
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "content": "This area is also the southernmost home in the world for golden eagles."
+            },
+            {
+              "type": "subheader",
+              "content": "Wetland Birds"
+            },
+            {
+              "type": "list",
+              "items": [
+                {
+                  "text": "The lakes, rivers, and swamps of the plateau attract migratory waders from Europe and Asia, as well as rare and endemic waterbirds like:",
+                  "subitems": [
+                    "Blue-winged goose* (the rarest and most isolated goose species in the world)",
+                    "Spot-breasted plover*",
+                    "Ruddy shelduck (a unique, isolated population found here)",
+                    "Red-billed chough (the most southern population in Africa)",
+                    "Wattled crane (the northernmost population in Africa)"
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "tag": "GetEricaBeltInformation",
+      "patterns": [
+        "What is the Erica Belt in Baale Mountain?",
+        "Tell me about the Erica Belt",
+        "What can I find in the Erica Belt?",
+        "Describe the Erica Belt area"
+      ],
+      "responses": [
+        {
+          "parts": [
+            {
+              "type": "header",
+              "content": "Erica Belt: Moorlands and Forest"
+            },
+            {
+              "type": "text",
+              "content": "This unique habitat lies just above the tree line, between elevations of 3,400m to 3,800m. The area is dominated by heather species — especially Erica arborea (tree heath), a plant found across the world, but in Bale, it reaches extraordinary sizes of up to 5 meters tall, particularly near the tree line. \nThe forest here feels almost magical, with giant heathers draped in moss and old man’s beard (a type of lichen), creating a fairytale-like atmosphere. This type of heather forest is extremely rare and endangered in Ethiopia. The most accessible part of the Erica Belt can be seen along the road crossing the Sanetti Plateau, about 100 meters above the village of Rira."
+            },
+            {
+              "type": "subheader",
+              "content": "Wildlife of the Erica Belt"
+            },
+            {
+              "type": "list",
+              "items": [
+                {
+                  "text": "The dense vegetation can make spotting wildlife a challenge, but the area is home to:",
+                  "subitems": [
+                    "Mountain nyala*",
+                    "Menelik’s bushbuck*",
+                    "Grey duiker"
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "list",
+              "items": [
+                {
+                  "text": "More commonly seen are:",
+                  "subitems": [
+                    "Klipspringers (in Bale, both male and female klipspringers have horns — a unique trait)",
+                    "Rock hyrax",
+                    ""
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "subheader",
+              "content": "Birds to Look For"
+            },
+            {
+              "type": "list",
+              "items": [
+                {
+                  "text": "Birdwatchers should keep an eye out for:",
+                  "subitems": [
+                    "Moorland francolin",
+                    "Chestnut-naped francolin",
+                    "Alpine chat",
+                    "Rouget’s rail (**)"
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "tag": "wildlife",
+      "patterns": [
+        "Tell me about wildlife in Bale Mountains",
+        "What animals live in Bale Mountains National Park?",
+        "Wildlife information of Bale Mountains",
+        "Show me the wildlife in Bale",
+        "What species can I see in Bale Mountains?",
+        "List animals and birds found in Bale Mountains",
+        "Which endemic species are found in Bale?",
+        "Give me information about wildlife in Bale Mountains"
+      ],
+      "responses": [
+        {
+          "parts": [
+            {
+              "type": "header",
+              "content": "Wildlife"
+            },
+            {
+              "type": "text",
+              "content": "The Bale Mountains are a critically important area for a number of threatened Ethiopian endemic species. The Afroalpine area is home to over half of the global population of Ethiopian wolf, the rarest canid in the world, whereas the northern juniper-Hagenia woodlands harbour the largest population of the endemic and similarly endangered mountain nyala. Less obviously 26% of Ethiopia’s endemic species (including one primate, one bovid, one hare, eight species of rodent, and the entire global population of the giant molerat) can be found in the park. Six of the 18 birds endemic to Ethiopia can be found in Bale Mountains National Park, as well as 11 of the 14 birds endemic to Ethiopia and Eritrea. There are also several rare and endemic amphibian species found only in Bale, as well as over 1,300 species of flowering plants, 163 of which are endemic to Ethiopia (12 percent), and 23 to Bale alone (14 percent of Ethiopia’s endemic plants)."
+            },
+            {
+              "type": "subheader",
+              "content": "BMNP Species by Numbers"
+            },
+            {
+              "type": "table",
+              "columns": [],
+              "rows": [
+                [
+                  "Mammals",
+                  "78"
+                ],
+                [
+                  "Reptiles",
+                  "12"
+                ],
+                [
+                  "Amphibians",
+                  "17"
+                ],
+                [
+                  "Birds",
+                  "310"
+                ],
+                [
+                  "Flowering plants",
+                  "1,300"
                 ]
-              }
-            ]
-          }
-        ]
-      }
-    ]
-  },   
-  {
-    "tag": "GetAfroalpineMeadowsInformation",
-    "patterns": [
-      "What are the Afroalpine Meadows like?",
-      "Tell me about the Afroalpine Meadows",
-      "What can I see in the Afroalpine Meadows?",
-      "Describe the Afroalpine Meadows area"
-    ],   
-    "responses": [
-      {
-        "parts": [
-          {
-            "type": "header",
-            "content": "Afroalpine Meadows (Sanetti Plateau & Upper Web Valley)"
-          },
-          {
-            "type": "text",
-            "content": "The Sanetti Plateau, sitting at an extremely high altitude, is one of the most remarkable areas of the Bale Mountains National Park. Plant life here is limited due to the cold climate, but one iconic species stands out — the giant lobelia, which can grow up to 6 meters tall between elevations of 3,100m to 4,377m. This plateau is also home to Tulu Dimtu, the second highest peak in Ethiopia, standing at 4,377 meters, making it the highest point in the Bale Mountains.\n\n"
-          }
-          ,
-          {
-            "type": "subheader",
-            "content": "Wildlife of the Afroalpine Meadows"
-          },
-          {
-            "type": "text",
-            "content": "Despite the harsh conditions, the plateau supports an incredible density of rodents — up to 2,500 kg per square kilometer! These small mammals, including mice, rats, and mole rats, dominate the landscape. One unique species to look for is the giant molerat*, which is found only in the Bale Mountains."
-
-          },
-          {
-            "type": "list",
-            "items": [
-              {
-                "text": "Other notable animals include:",
-                "subitems": [
-                  "Rock hyrax",
-                  "Starck’s hare*"
-                  
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "tag": "birds",
+      "patterns": [
+        "Tell me about birds in Bale Mountains",
+        "What birds can I see in Bale Mountains National Park?",
+        "Bird species in Bale Mountains",
+        "Birdwatching in Bale Mountains",
+        "Show me the birds in Bale",
+        "What bird species can I see in Bale Mountains?",
+        "List birds found in Bale Mountains",
+        "Which bird species are found in Bale?",
+        "Give me information about birds in Bale Mountains"
+      ],
+      "responses": [
+        {
+          "parts": [
+            {
+              "type": "header",
+              "content": "Birds of the Bale Mountains National Park"
+            },
+            {
+              "type": "text",
+              "content": "The Bale Mountains National Park is one of the best bird-watching places in Africa, home to 310 species of birds. More than 170 migratory birds also visit the park. Many of Ethiopia’s unique birds, called endemic birds, live here. In Ethiopia, there are over 863 species of birds, which is about 9.5% of all the birds in the world. Out of these, 18 species are only found in Ethiopia, and 14 species are found only in Ethiopia and Eritrea. "
+            },
+            {
+              "type": "list",
+              "items": [
+                {
+                  "text": "Some special birds you can find in the Bale Mountains include:",
+                  "subitems": [
+                    "Wattled crane",
+                    "Moorland francolin",
+                    "Chestnut-naped francolin",
+                    "Spot-breasted plover"
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "list",
+              "items": [
+                {
+                  "text": "The park also has birds from Europe that only breed here in Africa, like:",
+                  "subitems": [
+                    "Ruddy shelduck",
+                    "Golden eagle",
+                    "Red-billed chough"
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "subheader",
+              "content": "Special Birds Found Only in the Bale Mountains"
+            },
+            {
+              "type": "table",
+              "columns": [
+                "Bird Name",
+                "Scientific Name"
+              ],
+              "rows": [
+                [
+                  "Blue-winged Goose",
+                  "Cyanochen cyanoptera"
+                ],
+                [
+                  "Spot-breasted Plover",
+                  "Vanellus melanochepalus"
+                ],
+                [
+                  "Yellow-fronted Parrot",
+                  "Poicephalus flavifrons"
+                ],
+                [
+                  "Abyssinian Longclaw",
+                  "Macronyx flavicollis"
+                ],
+                [
+                  "Abyssinian Catbird",
+                  "Parophasma galinieri"
+                ],
+                [
+                  "Black-headed Siskin",
+                  "Serinus nigriceps"
                 ]
-              }
-            ]
-          },
-          {
-            "type": "subheader",
-            "content": "Birds of the Plateau"
-          },
-          {
-            "type": "list",
-            "items": [
-              {
-                "text": "The plateau’s rich rodent population attracts a variety of birds of prey, including:",
-                "subitems": [
-                  "Augur buzzard",
-                  "Verreaux’s eagle",
-                  "Tawny eagle",
-                  "Steppe eagle",
-                  "Lanner falcon",
-                  "Kestrel",
-                  "Lammergeyer (bearded vulture)"
-
+              ]
+            },
+            {
+              "type": "subheader",
+              "content": "Some Highlights About These Birds"
+            },
+            {
+              "type": "list",
+              "items": [
+                {
+                  "text": "Blue-winged Goose",
+                  "subitems": [
+                    "Found only in Ethiopia’s highlands.",
+                    "Lives near rivers, lakes, and marshy areas.",
+                    "Forms flocks of 50-100 birds.",
+                    "Breeds in dry months (March, April, June).",
+                    "Male shows off his blue wing to attract a mate."
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "list",
+              "items": [
+                {
+                  "text": "Spot-breasted Plover",
+                  "subitems": [
+                    " Lives in Ethiopia’s highlands above 3,050 meters.",
+                    "Runs and stops suddenly on the ground.",
+                    "Makes loud, sharp calls.",
+                    "Nests in grass and moss with up to 4 eggs."
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "list",
+              "items": [
+                {
+                  "text": "Yellow-fronted Parrot",
+                  "subitems": [
+                    "Lives in forests and woodlands up to 3,350 meters high.",
+                    "Loud and easy to hear.",
+                    "Eats fruits, seeds, sorghum, and maize.",
+                    "Threatened by habitat loss."
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "list",
+              "items": [
+                {
+                  "text": "Abyssinian Longclaw",
+                  "subitems": [
+                    "Common in grasslands at high altitudes.",
+                    "Bright yellow throat and black necklace.",
+                    "Builds nests on the ground.",
+                    "Sings clear, beautiful songs."
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "list",
+              "items": [
+                {
+                  "text": "Abyssinian Catbird",
+                  "subitems": [
+                    "Known as the best singer of all African birds.",
+                    "Lives in forest edges and thickets.",
+                    "Male and female sing duets together.",
+                    "Eats juniper berries."
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "list",
+              "items": [
+                {
+                  "text": "Black-headed Siskin",
+                  "subitems": [
+                    "Lives above 2,000 meters.",
+                    "Found in flocks of up to 100 birds.",
+                    "Nests in bushes and trees.",
+                    "Lays 2-3 eggs."
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "subheader",
+              "content": "Near-Endemic Birds (Found in Ethiopia and Eritrea)"
+            },
+            {
+              "type": "table",
+              "columns": [
+                " Bird Name",
+                "Scientific Name"
+              ],
+              "rows": [
+                [
+                  "Wattled ibis",
+                  "Bostrychia carunculata"
+                ],
+                [
+                  "Rouget’s rail",
+                  "Rougetius rougetii"
+                ],
+                [
+                  "White-collared pigeo",
+                  "Columba albitorques"
+                ],
+                [
+                  "White-backed black tit",
+                  "Parus leuconotus"
+                ],
+                [
+                  "Abyssinian black-headed oriole",
+                  "Oriolus monacha"
+                ],
+                [
+                  "Thick-billed raven",
+                  "Corvus crassirostris"
+                ],
+                [
+                  "Black-winged lovebird",
+                  "Agapornis taranta"
+                ],
+                [
+                  "Banded barbet",
+                  "Lybius undatus"
+                ],
+                [
+                  "Gold-mantled woodpecker",
+                  "Dendropicos abyssinicus"
+                ],
+                [
+                  "White-billed starling",
+                  "Onychognathus albirostris"
                 ]
-              }
-            ]
-          },
-          {
-            "type":"text",
-            "content": "This area is also the southernmost home in the world for golden eagles."
-
-          },
-          {
-            "type": "subheader",
-            "content": "Wetland Birds"
-          },
-          {
-            "type": "list",
-            "items": [
-              {
-                "text": "The lakes, rivers, and swamps of the plateau attract migratory waders from Europe and Asia, as well as rare and endemic waterbirds like:",
-                "subitems": [
-                  "Blue-winged goose* (the rarest and most isolated goose species in the world)",
-                  "Spot-breasted plover*",
-                  "Ruddy shelduck (a unique, isolated population found here)",
-                  "Red-billed chough (the most southern population in Africa)",
-                  "Wattled crane (the northernmost population in Africa)"
-                ]
-              }
-            ]
-
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "tag": "GetEricaBeltInformation",
-    "patterns": [
-      "What is the Erica Belt in Baale Mountain?",
-      "Tell me about the Erica Belt",
-      "What can I find in the Erica Belt?",
-      "Describe the Erica Belt area"
-    ],
-    "responses": [
-      {
-        "parts": [
-          {
-            "type": "header",
-            "content": "Erica Belt: Moorlands and Forest"
-          },
-          {
-            "type": "text",
-            "content": "This unique habitat lies just above the tree line, between elevations of 3,400m to 3,800m. The area is dominated by heather species — especially Erica arborea (tree heath), a plant found across the world, but in Bale, it reaches extraordinary sizes of up to 5 meters tall, particularly near the tree line. \nThe forest here feels almost magical, with giant heathers draped in moss and old man’s beard (a type of lichen), creating a fairytale-like atmosphere. This type of heather forest is extremely rare and endangered in Ethiopia. The most accessible part of the Erica Belt can be seen along the road crossing the Sanetti Plateau, about 100 meters above the village of Rira."
-          },
-          {
-            "type": "subheader",
-            "content": "Wildlife of the Erica Belt"
-          },
-          {
-            "type": "list",
-            "items": [
-              {
-                "text": "The dense vegetation can make spotting wildlife a challenge, but the area is home to:",
-                "subitems": [
-                  "Mountain nyala*",
-                  "Menelik’s bushbuck*",
-                  "Grey duiker"
-                ]
-              }
-            ]
-          },
-          {
-            "type": "list",
-            "items": [
-              {
-                "text": "More commonly seen are:",
-                "subitems": [
-                  "Klipspringers (in Bale, both male and female klipspringers have horns — a unique trait)",
-                  "Rock hyrax",
-                  ""
-                ]
-              }
-            ]
-          },
-          {
-            "type": "subheader",
-            "content": "Birds to Look For"
-          },
-          {
-            "type": "list",
-            "items": [
-              {
-                "text": "Birdwatchers should keep an eye out for:",
-                "subitems": [
-                  "Moorland francolin",
-                  "Chestnut-naped francolin",
-                  "Alpine chat",
-                  "Rouget’s rail (**)"
-                ]
-              }
-            ]
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "tag":"wildlife",
-    "patterns":[
-   "Tell me about wildlife in Bale Mountains",
-   "What animals live in Bale Mountains National Park?",
-   "Wildlife information of Bale Mountains",
-   "Show me the wildlife in Bale",
-   "What species can I see in Bale Mountains?",
-   "List animals and birds found in Bale Mountains",
-   "Which endemic species are found in Bale?",
-   "Give me information about wildlife in Bale Mountains"
-    ],
-    "responses": [
-      {
-        "parts": [
-          {
-            "type": "header",
-            "content": "Wildlife"
-          },
-          {
-            "type": "text",
-            "content": "The Bale Mountains are a critically important area for a number of threatened Ethiopian endemic species. The Afroalpine area is home to over half of the global population of Ethiopian wolf, the rarest canid in the world, whereas the northern juniper-Hagenia woodlands harbour the largest population of the endemic and similarly endangered mountain nyala. Less obviously 26% of Ethiopia’s endemic species (including one primate, one bovid, one hare, eight species of rodent, and the entire global population of the giant molerat) can be found in the park. Six of the 18 birds endemic to Ethiopia can be found in Bale Mountains National Park, as well as 11 of the 14 birds endemic to Ethiopia and Eritrea. There are also several rare and endemic amphibian species found only in Bale, as well as over 1,300 species of flowering plants, 163 of which are endemic to Ethiopia (12 percent), and 23 to Bale alone (14 percent of Ethiopia’s endemic plants)."
-          },
-          {
-            "type": "subheader",
-            "content": "BMNP Species by Numbers"
-          },
-          {
-            "type": "table",
-            "columns": [],
-            "rows": [
-              ["Mammals","78"],
-              ["Reptiles","12"],
-              ["Amphibians"	,"17"],
-              ["Birds",	"310"],
-              ["Flowering plants","1,300"]
-            ]
-          }
-        ]
-    }
-  ]
-
-  },
-  {
-    "tag": "birds",
-    "patterns": [
-      "Tell me about birds in Bale Mountains",
-      "What birds can I see in Bale Mountains National Park?",
-      "Bird species in Bale Mountains",
-      "Birdwatching in Bale Mountains",
-      "Show me the birds in Bale",
-      "What bird species can I see in Bale Mountains?",
-      "List birds found in Bale Mountains",
-      "Which bird species are found in Bale?",
-      "Give me information about birds in Bale Mountains"
-    ],
-    "responses":[
-      {
-        "parts": [
-          {
-            "type": "header",
-            "content": "Birds of the Bale Mountains National Park"
-          },
-          {
-            "type": "text",
-            "content": "The Bale Mountains National Park is one of the best bird-watching places in Africa, home to 310 species of birds. More than 170 migratory birds also visit the park. Many of Ethiopia’s unique birds, called endemic birds, live here. In Ethiopia, there are over 863 species of birds, which is about 9.5% of all the birds in the world. Out of these, 18 species are only found in Ethiopia, and 14 species are found only in Ethiopia and Eritrea. "
-          },
-          {
-            "type": "list",
-            "items": [
-              {
-                "text": "Some special birds you can find in the Bale Mountains include:",
-                "subitems": [
-                  "Wattled crane",
-                  "Moorland francolin",
-                  "Chestnut-naped francolin",
-                  "Spot-breasted plover"
-                ]
-              }
-            ]
-          },
-          {
-            "type": "list",
-            "items": [
-              {
-                "text": "The park also has birds from Europe that only breed here in Africa, like:",
-                "subitems": [
-                  "Ruddy shelduck",
-                  "Golden eagle",
-                  "Red-billed chough"
-                ]
-              }
-            ]
-          },
-          {
-            "type": "subheader",
-            "content": "Special Birds Found Only in the Bale Mountains"
-          },
-          {
-            "type": "table",
-            "columns": ["Bird Name", "Scientific Name"],
-            "rows": [
-              ["Blue-winged Goose",	"Cyanochen cyanoptera"],
-              ["Spot-breasted Plover",	"Vanellus melanochepalus"],
-              ["Yellow-fronted Parrot",	"Poicephalus flavifrons"],
-              ["Abyssinian Longclaw",	"Macronyx flavicollis"],
-              ["Abyssinian Catbird",	"Parophasma galinieri"],
-              ["Black-headed Siskin",	"Serinus nigriceps"]
-            ]
-          },
-          {
-            "type": "subheader",
-            "content": "Some Highlights About These Birds"
-          },
-          {
-            "type": "list",
-            "items": [
-              {
-                "text": "Blue-winged Goose",
-                "subitems": [
-                  "Found only in Ethiopia’s highlands.",
-                  "Lives near rivers, lakes, and marshy areas.",
-                  "Forms flocks of 50-100 birds.",
-                  "Breeds in dry months (March, April, June).",
-                  "Male shows off his blue wing to attract a mate."
-                ]
-              }
-            ]
-          },
-          {
-            "type": "list",
-            "items": [
-              {
-                "text": "Spot-breasted Plover",
-                "subitems": [
-                 " Lives in Ethiopia’s highlands above 3,050 meters.",
-"Runs and stops suddenly on the ground.",
-"Makes loud, sharp calls.",
-"Nests in grass and moss with up to 4 eggs."
-                ]
-              }
-            ]
-          },{
-            "type": "list",
-            "items": [
-              {
-                "text": "Yellow-fronted Parrot",
-                "subitems": [
-                  "Lives in forests and woodlands up to 3,350 meters high.",
-"Loud and easy to hear.",
-"Eats fruits, seeds, sorghum, and maize.",
-"Threatened by habitat loss."
-                ]
-              }
-            ]
-          },{
-            "type": "list",
-            "items": [
-              {
-                "text": "Abyssinian Longclaw",
-                "subitems": [
-                  "Common in grasslands at high altitudes.",
-"Bright yellow throat and black necklace.",
-"Builds nests on the ground.",
-"Sings clear, beautiful songs."
-                ]
-              }
-            ]
-          },{
-            "type": "list",
-            "items": [
-              {
-                "text": "Abyssinian Catbird",
-                "subitems": [
-                  "Known as the best singer of all African birds.",
-"Lives in forest edges and thickets.",
-"Male and female sing duets together.",
-"Eats juniper berries."
-                ]
-              }
-            ]
-          },{
-            "type": "list",
-            "items": [
-              {
-                "text": "Black-headed Siskin",
-                "subitems": [
-                  "Lives above 2,000 meters.",
-"Found in flocks of up to 100 birds.",
-"Nests in bushes and trees.",
-"Lays 2-3 eggs."
-                ]
-              }
-            ]
-          },
-          
-          {
-            "type": "subheader",
-            "content": "Near-Endemic Birds (Found in Ethiopia and Eritrea)"
-          },
-          {
-            "type": "table",
-            "columns": [
-             " Bird Name","Scientific Name"],
-            "rows": [
-              ["Wattled ibis",	"Bostrychia carunculata"],
-              ["Rouget’s rail",	"Rougetius rougetii"],
-              ["White-collared pigeo","Columba albitorques"],
-              ["White-backed black tit"	,"Parus leuconotus"],
-              ["Abyssinian black-headed oriole","Oriolus monacha"],
-              ["Thick-billed raven","Corvus crassirostris"],
-              ["Black-winged lovebird","Agapornis taranta"],
-              ["Banded barbet","Lybius undatus"],
-              ["Gold-mantled woodpecker","Dendropicos abyssinicus"],
-              ["White-billed starling",	"Onychognathus albirostris"]
-            ]
-
-          },
-          {
-            "type": "subheader",
-            "content": "Other Interesting Birds"
-          },
-          {
-            "type": "list",
-            "items": [
-              {
-                "text": "Abyssinian Ground Hornbill",
-                "subitems": [
-                  "Large black bird with a big bill.",
-"Males have red throat pouch, females have blue.",
-"Found in pairs or small groups.",
-"Slow breeders — they only raise one chick at a time.",
-"In Oromo culture, passing between a pair of hornbills is believed to bring long life."                ]
-              }
-            ]
-          },
-          {
-            "type": "list",
-            "items": [
-              {
-                "text": "Wattled Crane",
-                "subitems": [
-                  "Largest and rarest crane species in Africa.",
-"Often seen in wetlands in the park."
-                ]
-              }
-            ]
-          }
-        ]
-    }
-    ]
-
-  },
-
-  {
+              ]
+            },
+            {
+              "type": "subheader",
+              "content": "Other Interesting Birds"
+            },
+            {
+              "type": "list",
+              "items": [
+                {
+                  "text": "Abyssinian Ground Hornbill",
+                  "subitems": [
+                    "Large black bird with a big bill.",
+                    "Males have red throat pouch, females have blue.",
+                    "Found in pairs or small groups.",
+                    "Slow breeders — they only raise one chick at a time.",
+                    "In Oromo culture, passing between a pair of hornbills is believed to bring long life."
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "list",
+              "items": [
+                {
+                  "text": "Wattled Crane",
+                  "subitems": [
+                    "Largest and rarest crane species in Africa.",
+                    "Often seen in wetlands in the park."
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
       "tag": "farewell",
-      "patterns": ["Thank you", "Goodbye", "See you later"],
-      "responses": ["You're welcome! Enjoy your trip to Bale Mountains!", "Goodbye! Have a great adventure!"]
+      "patterns": [
+        "Thank you",
+        "Goodbye",
+        "See you later"
+      ],
+      "responses": [
+        "You're welcome! Enjoy your trip to Bale Mountains!",
+        "Goodbye! Have a great adventure!"
+      ]
     }
-    
-    
   ]
 }

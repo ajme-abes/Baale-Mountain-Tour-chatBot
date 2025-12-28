@@ -1,5 +1,7 @@
 # chatapi/views.py
 import logging
+import os
+import warnings
 from rest_framework.views import APIView
 import requests
 from rest_framework.response import Response
@@ -9,7 +11,19 @@ from .utils.chat_processor import ChatProcessor
 from django.conf import settings
 import requests
 
+# Suppress warnings at the view level as well
+warnings.filterwarnings('ignore', category=FutureWarning)
+os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
+
 logger = logging.getLogger(__name__)
+
+# Initialize ChatProcessor once to avoid repeated initialization
+try:
+    chat_processor = ChatProcessor()
+    logger.info("ChatProcessor initialized successfully in views")
+except Exception as e:
+    logger.error(f"Failed to initialize ChatProcessor: {str(e)}")
+    chat_processor = None
 
 class ChatView(APIView):
     """
@@ -24,6 +38,7 @@ class ChatView(APIView):
         try:
             return Response({
                 "message": "Bale Mountains National Park Chat API",
+                "status": "online",
                 "documentation": {
                     "POST /api/chat/": {
                         "description": "Process chat messages",
@@ -48,6 +63,17 @@ class ChatView(APIView):
         POST endpoint for processing chat messages
         """
         try:
+            # Check if ChatProcessor is available
+            if chat_processor is None:
+                logger.error("ChatProcessor not initialized")
+                return Response(
+                    {
+                        "text": "I'm sorry, but the chat service is currently unavailable. Please try again later.",
+                        "error": "Service initialization failed"
+                    },
+                    status=status.HTTP_503_SERVICE_UNAVAILABLE
+                )
+            
             # Validate input
             message = request.data.get('message', '').strip()
             if not message:
@@ -58,6 +84,46 @@ class ChatView(APIView):
 
             logger.info(f"Processing message: {message[:50]}...")
             
+            # Process the message
+            response_data = chat_processor.get_response(message)
+            
+            logger.info("Message processed successfully")
+            return Response(response_data, status=status.HTTP_200_OK)
+            
+        except Exception as e:
+            logger.error(f"POST Error: {str(e)}", exc_info=True)
+            return Response(
+                {
+                    "text": "I apologize, but I encountered an error while processing your request. Please try again.",
+                    "error": "Processing failed"
+                },
+                status=status.HTTP_500_INTERNAL_SERVER_ERROR
+            )
+
+class PerformanceView(APIView):
+    """
+    Performance monitoring endpoint
+    """
+    def get(self, request):
+        try:
+            if chat_processor:
+                cache_stats = chat_processor.get_cache_stats()
+                return Response({
+                    "status": "healthy",
+                    "cache_stats": cache_stats,
+                    "processor_available": True
+                })
+            else:
+                return Response({
+                    "status": "unhealthy",
+                    "processor_available": False
+                }, status=status.HTTP_503_SERVICE_UNAVAILABLE)
+        except Exception as e:
+            logger.error(f"Performance check failed: {str(e)}")
+            return Response({
+                "status": "error",
+                "error": str(e)
+            }, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
             # Process message
             processor = ChatProcessor()
             response = processor.get_response(message)
