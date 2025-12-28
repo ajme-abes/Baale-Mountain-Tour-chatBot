@@ -35,8 +35,8 @@ def test_imports():
         print(f"✅ SimpleProcessor response: {result['intent']} ({result['confidence']})")
         
         print("Testing views import...")
-        from chatapi.views import ChatView
-        print("✅ Views import successful")
+        from chatapi.views_deployment import ChatView
+        print("✅ Deployment views import successful")
         
         return True
         
