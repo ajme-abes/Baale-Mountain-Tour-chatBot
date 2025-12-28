@@ -168,6 +168,9 @@ node_modules/
 /build
 /dist
 
+# Don't ignore public folder in React projects
+!chatbot-frontend/public/
+
 # Misc
 .DS_Store
 .env.local
@@ -246,7 +249,7 @@ dist
 
 # Gatsby files
 .cache/
-public
+# public (Gatsby - not React public folder)
 
 # Storybook build outputs
 .out

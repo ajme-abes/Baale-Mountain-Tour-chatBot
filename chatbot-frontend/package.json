@@ -5,7 +5,7 @@
   "dependencies": {
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.0",
-    "@mui/icons-material": "^5.14.18",
+    "@mui/icons-material": "^5.18.0",
     "@mui/lab": "^5.0.0-alpha.122",
     "@mui/material": "^5.16.14",
     "@popperjs/core": "^2.11.8",
