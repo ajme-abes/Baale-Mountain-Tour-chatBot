@@ -2,353 +2,303 @@ import axios from 'axios';
 import {
     Box,
     TextField,
-    Button,
-    List,
-    ListItem,
-    ListItemText,
     Paper,
     Typography,
     CircularProgress,
-    Table,
-    TableBody,
-    TableCell,
-    TableHead,
-    TableRow
+    Container,
+    Avatar,
+    IconButton,
+    Tooltip,
+    Card
 } from '@mui/material';
 import { useEffect, useState, useRef } from 'react';
-import { motion } from 'framer-motion';
-const images = [
-    "https://balemountains.org/wp-content/uploads/2014/01/010706_1.jpg",
-    "https://balemountains.org/wp-content/uploads/2013/03/BAL0053.jpg",
-    "https://balemountains.org/wp-content/uploads/2014/01/BAL00881.jpg",
-    "https://balemountains.org/wp-content/uploads/2019/10/Sera_James_Irvine_Harenna_forest_Bale_Mountain_Lodge-SMALL-1-1024x713.jpg",
-    "https://balemountains.org/wp-content/uploads/2013/02/delphin-ruche037-1024x685.jpg",
-    "https://balemountains.org/wp-content/uploads/2014/01/040707_4_-30-1024x685.jpg"
-    
-];
-// Left side moving image component
-const MovingImage = () => {
-    const [currentImageIndex, setCurrentImageIndex] = useState(0);
-
-    // Image change effect (every 5 seconds, change to the next image)
-    useEffect(() => {
-        const interval = setInterval(() => {
-            setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length);
-        }, 5000); // Change every 5 seconds (you can adjust this)
-
-        return () => clearInterval(interval);
-    }, []);
-
-    return (
-        <Box sx={{ height: '100%', overflow: 'hidden', borderRadius: '12px', position: 'relative' }}>
-            <motion.img
-                src={images[currentImageIndex]}
-                alt="Slideshow Image"
-                key={currentImageIndex} // This forces the animation to reset when image changes
-                style={{
-                    width: '100%',
-                    height: '100%',
-                    objectFit: 'cover'
-                }}
-                animate={{
-                    y: [0, 15, 0] // Floating animation
-                }}
-                transition={{
-                    duration: 6,
-                    repeat: Infinity,
-                    ease: 'easeInOut'
-                }}
-            />
-        </Box>
-    );
-};
-
-// Component to render chatbot responses
-const ResponseRenderer = ({ parts }) => {
-  const renderNestedList = (items, depth = 0) => {
-    return items.map((item, index) => {
-    if (typeof item === 'object' && item.subitems) {
-    return (
-    <Box key={index} sx={{ pl: depth * 2 }}>
-    <Typography component="span" fontWeight="500">
-    {item.text}
-    </Typography>
-    <List dense sx={{ pl: 2 }}>
-    {renderNestedList(item.subitems, depth + 1)}
-    </List>
-    </Box>
-    );
-    }
-    return (
-    <ListItem key={index} sx={{ py: 0, pl: depth * 2 }}>
-    <ListItemText primary={item} />
-    </ListItem>
-    );
-    });
-    };
-    
-    const renderContent = (content) => {
-    return content.map((item, index) => {
-    if (typeof item === 'string') return <Typography key={index} paragraph>{item}</Typography>;
-    
-    switch(item.type) {
-    case 'header':
-    return <Typography key={index} variant="h6" gutterBottom>{item.content}</Typography>;
-    
-    case 'subheader':
-    return <Typography key={index} variant="subtitle1" gutterBottom>{item.content}</Typography>;
-    
-    case 'text':
-    return <Typography key={index} paragraph>{item.content}</Typography>;
-    
-    case 'list':
-    return (
-    <List key={index} dense>
-    {item.content?.map?.((listItem, idx) => (
-    <ListItem key={idx} sx={{ py: 0 }}>
-    <ListItemText primary={listItem} />
-    </ListItem>
-    ))}
-    {item.items?.map?.((listItem, idx) => (
-    <Box key={idx} sx={{ pl: 2 }}>
-    {renderNestedList([listItem])}
-    </Box>
-    ))}
-    </List>
-    );
-    
-    case 'table':
-    return (
-    <Table key={index} size="small" sx={{ my: 2 }}>
-    <TableHead>
-    <TableRow>
-    {item.columns.map((col, i) => (
-    <TableCell key={i} sx={{ fontWeight: 'bold' }}>{col}</TableCell>
-    ))}
-    </TableRow>
-    </TableHead>
-    <TableBody>
-    {item.rows.map((row, i) => (
-    <TableRow key={i}>
-    {row.map((cell, j) => (
-    <TableCell key={j}>{cell}</TableCell>
-    ))}
-    </TableRow>
-    ))}
-    </TableBody>
-    </Table>
-    );
-    
-    case 'section':
-    return (
-    <Box key={index} sx={{ mb: 3 }}>
-    <Typography variant="subtitle1" gutterBottom sx={{ fontWeight: 'bold' }}>
-    {item.title}
-    </Typography>
-    {renderContent(item.content)}
-    </Box>
-    );
-    
-    case 'timeline':
-    return (
-    <Box key={index} sx={{ borderLeft: '3px solid', borderColor: 'primary.main', pl: 2, ml: 1 }}>
-    {item.items.map((period, idx) => (
-    <Box key={idx} sx={{ mb: 2 }}>
-    <Typography variant="subtitle2" color="primary">
-    {period.year}
-    </Typography>
-    <List dense>
-    {period.events.map((event, eventIdx) => (
-    <ListItem key={eventIdx} sx={{ py: 0 }}>
-    <ListItemText primary={event} />
-    </ListItem>
-    ))}
-    </List>
-    </Box>
-    ))}
-    </Box>
-    );
-    
-    case 'ordered-list':
-    return (
-    <List key={index} component="ol" sx={{ listStyleType: 'decimal', pl: 3 }}>
-    {item.items.map((dayItem, idx) => (
-    <ListItem key={idx} sx={{ display: 'list-item', p: 0 }}>
-    <Typography fontWeight="500">{dayItem.day}</Typography>
-    <List component="ul" dense>
-    {dayItem.activities.map((activity, aIdx) => (
-    <ListItem key={aIdx} sx={{ py: 0 }}>
-    <ListItemText primary={activity} />
-    </ListItem>
-    ))}
-    </List>
-    </ListItem>
-    ))}
-    </List>
-    );
-    
-    case 'summary':
-    return (
-    <Paper key={index} sx={{ p: 2, my: 2, bgcolor: 'background.default' }}>
-    <Typography variant="subtitle2" gutterBottom>
-    {item.content[0]}
-    </Typography>
-    <List component="ol" sx={{ listStyleType: 'decimal', pl: 2 }}>
-    {item.content.slice(1).map((point, idx) => (
-    <ListItem key={idx} sx={{ display: 'list-item', p: 0 }}>
-    <Typography>{point}</Typography>
-    </ListItem>
-    ))}
-    </List>
-    </Paper>
-    );
-    
-    case 'note':
-    return (
-    <Paper key={index} sx={{ p: 2, my: 2, bgcolor: 'info.light' }}>
-    <Typography variant="body2">{item.content}</Typography>
-    </Paper>
-    );
-    
-    default:
-    return null;
-    }
-    });
-    };
-    return <Box sx={{ '& > *': { mb: 2 } }}>{renderContent(parts)}</Box>;
-};
+import { motion, AnimatePresence } from 'framer-motion';
+import SendIcon from '@mui/icons-material/Send';
+import SmartToyIcon from '@mui/icons-material/SmartToy';
+import ImageCarousel from './components/ImageCarousel';
+import MessageBubble from './components/MessageBubble';
+import QuickActions from './components/QuickActions';
+import WelcomeMessage from './components/WelcomeMessage';
+import MobileHeader from './components/MobileHeader';
 
 export default function ChatInterface() {
     const [messages, setMessages] = useState([]);
     const [input, setInput] = useState('');
     const [loading, setLoading] = useState(false);
+    const [isTyping, setIsTyping] = useState(false);
+    const [showWelcome, setShowWelcome] = useState(true);
     const messagesEndRef = useRef(null);
 
-    useEffect(() => messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' }), [messages]);
+    useEffect(() => {
+        messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
+    }, [messages]);
 
-    const handleSend = async (e) => {
-        e.preventDefault();
-        if (!input.trim() || loading) return;
+    const handleSend = async (messageText = input) => {
+        if (!messageText.trim() || loading) return;
+
+        // Hide welcome message after first interaction
+        if (showWelcome) {
+            setShowWelcome(false);
+        }
 
         setLoading(true);
-        const userMessage = input;
+        setIsTyping(true);
+        const userMessage = messageText;
         setInput('');
 
-        const userMsg = { id: Date.now(), text: userMessage, isBot: false };
+        const userMsg = {
+            id: Date.now(),
+            text: userMessage,
+            isBot: false,
+            timestamp: new Date()
+        };
         setMessages((prev) => [...prev, userMsg]);
 
         try {
-            const response = await axios.post('http://localhost:8000/api/chat/', { message: userMessage });
-            const botMsg = { id: Date.now() + 1, ...response.data, isBot: true };
+            const response = await axios.post('http://localhost:8000/api/chat/', {
+                message: userMessage
+            });
+
+            const botMsg = {
+                id: Date.now() + 1,
+                ...response.data,
+                isBot: true,
+                timestamp: new Date()
+            };
             setMessages((prev) => [...prev, botMsg]);
         } catch (error) {
             console.error("Failed to fetch response", error);
+            const errorMsg = {
+                id: Date.now() + 1,
+                text: "Sorry, I'm having trouble connecting right now. Please try again later.",
+                isBot: true,
+                timestamp: new Date(),
+                isError: true
+            };
+            setMessages((prev) => [...prev, errorMsg]);
         } finally {
             setLoading(false);
+            setIsTyping(false);
         }
     };
 
+    const handleQuickAction = (action) => {
+        console.log('Quick action clicked:', action);
+        handleSend(action);
+    };
+
     return (
-        <Box
-            sx={{
-                display: 'flex',
-                height: '88vh',
-                backgroundColor: '#f7f7f7',
-                overflow: 'hidden'
-            }}
-        >
-            {/* Left Side - Animated Image */}
-            <Box
-                sx={{
-                    width: '35%',
-                    display: { xs: 'none', md: 'block' },
-                    position: 'relative',
-                    backgroundColor: '#e8f5e9',
-                    p: 2
-                }}
-            >
-                <Typography variant="h5" sx={{ mb: 2, textAlign: 'center', fontWeight: 'bold' }}>
-                    Explore Baale Mountain 🌄
-                </Typography>
-                <Box sx={{ height: '95%', overflow: 'hidden', borderRadius: '12px' }}>
-                    <MovingImage  />
-                </Box>
-            </Box>
+        <>
+            {/* Mobile Header */}
+            <MobileHeader onQuickAction={handleQuickAction} />
 
-            {/* Right Side - Chat Interface */}
-            <Box
-                component="form"
-                onSubmit={handleSend}
-                sx={{
-                    flex: 1,
-                    p: 3,
-                    display: 'flex',
-                    flexDirection: 'column',
-                    justifyContent: 'space-between',
-                    backgroundColor: '#e8f5e9'
-                }}
-            >
-                <Typography variant="h4" align="center" gutterBottom fontWeight="bold" color="primary">
-                    Baale Mountain Travel Chatbot
-                </Typography>
-
-                {/* Chat Messages */}
-                <Paper sx={{ flex: 1, overflowY: 'auto', p: 2, mb: 2, backgroundColor: '#fafafa' }}>
-                    <List>
-                        {messages.map((msg) => (
-                            <ListItem
-                                key={msg.id}
-                                sx={{ justifyContent: msg.isBot ? 'flex-start' : 'flex-end' }}
+            <Container maxWidth="xl" sx={{ py: { xs: 1, md: 2 }, position: 'relative', zIndex: 1 }}>
+                <motion.div
+                    initial={{ opacity: 0, y: 50 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8, delay: 0.2 }}
+                >
+                    <Card sx={{
+                        height: { xs: 'calc(100vh - 120px)', md: '75vh' },
+                        background: 'rgba(255, 255, 255, 0.95)',
+                        backdropFilter: 'blur(20px)',
+                        border: '1px solid rgba(255, 255, 255, 0.2)',
+                        overflow: 'hidden'
+                    }}>
+                        <Box sx={{ display: 'flex', height: '100%', flexDirection: { xs: 'column', md: 'row' } }}>
+                            {/* Left Side - Image Carousel (Desktop Only) */}
+                            <Box
+                                sx={{
+                                    width: { xs: '0%', md: '40%' },
+                                    display: { xs: 'none', md: 'block' },
+                                    position: 'relative',
+                                    background: 'linear-gradient(135deg, #E8F5E9, #C8E6C9)',
+                                    borderRight: '1px solid rgba(255, 255, 255, 0.2)'
+                                }}
                             >
-                                <Paper
-                                    sx={{
-                                        p: 1.5,
-                                        bgcolor: msg.isBot ? 'secondary.light' : 'primary.main',
-                                        color: msg.isBot ? 'black' : 'white',
-                                        borderRadius: 3,
-                                        maxWidth: '70%'
-                                    }}
-                                >
-                                    {msg.parts ? (
-                                        <ResponseRenderer parts={msg.parts} />
-                                    ) : (
-                                        <Typography>{msg.text}</Typography>
-                                    )}
-                                    {msg.isBot && msg.intent && (
-                                        <Typography variant="caption" sx={{ mt: 0.5, opacity: 0.7 }}>
-                                            Intent: {msg.intent} (Confidence: {msg.confidence}%)
-                                        </Typography>
-                                    )}
-                                </Paper>
-                            </ListItem>
-                        ))}
-                        <div ref={messagesEndRef} />
-                    </List>
-                </Paper>
+                                <ImageCarousel />
+                            </Box>
 
-                {/* Input Field */}
-                <Box sx={{ display: 'flex', gap: 1 }}>
-                    <TextField
-                        fullWidth
-                        placeholder="Ask about Baale Mountain..."
-                        value={input}
-                        onChange={(e) => setInput(e.target.value)}
-                        disabled={loading}
-                        sx={{
-                            backgroundColor: 'white',
-                            '& .MuiOutlinedInput-root': { borderRadius: 3 }
-                        }}
-                    />
-                    <Button
-                        type="submit"
-                        variant="contained"
-                        disabled={loading}
-                        sx={{ minWidth: 100, borderRadius: 3 }}
-                    >
-                        {loading ? <CircularProgress size={24} color="inherit" /> : 'Send'}
-                    </Button>
-                </Box>
-            </Box>
-        </Box>
+                            {/* Right Side - Chat Interface */}
+                            <Box
+                                sx={{
+                                    flex: 1,
+                                    display: 'flex',
+                                    flexDirection: 'column',
+                                    height: '100%'
+                                }}
+                            >
+                                {/* Chat Header (Desktop Only) */}
+                                <Box sx={{
+                                    p: 3,
+                                    borderBottom: '1px solid rgba(0,0,0,0.1)',
+                                    background: 'linear-gradient(90deg, #2E7D32, #4CAF50)',
+                                    color: 'white',
+                                    display: { xs: 'none', md: 'block' }
+                                }}>
+                                    <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
+                                        <Avatar sx={{ bgcolor: 'rgba(255,255,255,0.2)' }}>
+                                            <SmartToyIcon />
+                                        </Avatar>
+                                        <Box>
+                                            <Typography variant="h6" fontWeight="600">
+                                                Bale Mountains AI Guide
+                                            </Typography>
+                                            <Typography variant="body2" sx={{ opacity: 0.9 }}>
+                                                {isTyping ? 'Typing...' : 'Online • Ready to help'}
+                                            </Typography>
+                                        </Box>
+                                    </Box>
+                                </Box>
+
+                                {/* Messages Area */}
+                                <Box sx={{
+                                    flex: 1,
+                                    overflowY: 'auto',
+                                    p: { xs: 1, md: 2 },
+                                    background: 'linear-gradient(180deg, #fafafa 0%, #f5f5f5 100%)'
+                                }}>
+                                    {/* Welcome Message */}
+                                    <AnimatePresence>
+                                        {showWelcome && messages.length === 0 && (
+                                            <WelcomeMessage />
+                                        )}
+                                    </AnimatePresence>
+
+                                    {/* Chat Messages */}
+                                    <AnimatePresence>
+                                        {messages.map((msg, index) => (
+                                            <MessageBubble
+                                                key={msg.id}
+                                                message={msg}
+                                                index={index}
+                                            />
+                                        ))}
+                                    </AnimatePresence>
+
+                                    {isTyping && (
+                                        <motion.div
+                                            initial={{ opacity: 0, y: 20 }}
+                                            animate={{ opacity: 1, y: 0 }}
+                                            exit={{ opacity: 0, y: -20 }}
+                                        >
+                                            <Box sx={{
+                                                display: 'flex',
+                                                justifyContent: 'flex-start',
+                                                mb: 2
+                                            }}>
+                                                <Paper sx={{
+                                                    p: 2,
+                                                    bgcolor: 'grey.100',
+                                                    borderRadius: '18px 18px 18px 4px',
+                                                    maxWidth: '70%'
+                                                }}>
+                                                    <Box sx={{ display: 'flex', gap: 0.5 }}>
+                                                        {[0, 1, 2].map((dot) => (
+                                                            <motion.div
+                                                                key={dot}
+                                                                style={{
+                                                                    width: 8,
+                                                                    height: 8,
+                                                                    borderRadius: '50%',
+                                                                    backgroundColor: '#666'
+                                                                }}
+                                                                animate={{ opacity: [0.3, 1, 0.3] }}
+                                                                transition={{
+                                                                    duration: 1.5,
+                                                                    repeat: Infinity,
+                                                                    delay: dot * 0.2
+                                                                }}
+                                                            />
+                                                        ))}
+                                                    </Box>
+                                                </Paper>
+                                            </Box>
+                                        </motion.div>
+                                    )}
+                                    <div ref={messagesEndRef} />
+                                </Box>
+
+                                {/* Quick Actions (Desktop Only) */}
+                                {messages.length === 0 && (
+                                    <Box sx={{ display: { xs: 'none', md: 'block' } }}>
+                                        <QuickActions onActionClick={handleQuickAction} />
+                                    </Box>
+                                )}
+
+                                {/* Input Area */}
+                                <Box sx={{
+                                    p: { xs: 2, md: 3 },
+                                    borderTop: '1px solid rgba(0,0,0,0.1)',
+                                    background: 'rgba(255, 255, 255, 0.9)',
+                                    backdropFilter: 'blur(10px)'
+                                }}>
+                                    <Box
+                                        component="form"
+                                        onSubmit={(e) => {
+                                            e.preventDefault();
+                                            handleSend();
+                                        }}
+                                        sx={{ display: 'flex', gap: { xs: 1, md: 2 }, alignItems: 'flex-end' }}
+                                    >
+                                        <TextField
+                                            fullWidth
+                                            multiline
+                                            maxRows={3}
+                                            placeholder="Ask me anything about Bale Mountains..."
+                                            value={input}
+                                            onChange={(e) => setInput(e.target.value)}
+                                            disabled={loading}
+                                            variant="outlined"
+                                            sx={{
+                                                '& .MuiOutlinedInput-root': {
+                                                    borderRadius: 3,
+                                                    backgroundColor: 'white',
+                                                    '&:hover': {
+                                                        boxShadow: '0 2px 8px rgba(0,0,0,0.1)',
+                                                    },
+                                                    '&.Mui-focused': {
+                                                        boxShadow: '0 4px 16px rgba(46, 125, 50, 0.2)',
+                                                    }
+                                                }
+                                            }}
+                                        />
+                                        <Tooltip title="Send message">
+                                            <span>
+                                                <IconButton
+                                                    type="submit"
+                                                    disabled={loading || !input.trim()}
+                                                    sx={{
+                                                        bgcolor: 'primary.main',
+                                                        color: 'white',
+                                                        width: { xs: 40, md: 48 },
+                                                        height: { xs: 40, md: 48 },
+                                                        '&:hover': {
+                                                            bgcolor: 'primary.dark',
+                                                            transform: 'scale(1.05)',
+                                                        },
+                                                        '&:disabled': {
+                                                            bgcolor: 'grey.300',
+                                                            color: 'grey.500',
+                                                        },
+                                                        transition: 'all 0.2s ease'
+                                                    }}
+                                                >
+                                                    {loading ? (
+                                                        <CircularProgress size={20} color="inherit" />
+                                                    ) : (
+                                                        <SendIcon fontSize="small" />
+                                                    )}
+                                                </IconButton>
+                                            </span>
+                                        </Tooltip>
+                                    </Box>
+                                </Box>
+                            </Box>
+                        </Box>
+                    </Card>
+                </motion.div>
+            </Container>
+        </>
     );
 }
