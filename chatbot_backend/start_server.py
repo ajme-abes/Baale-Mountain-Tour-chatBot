@@ -1,9 +1,3 @@
-#!/usr/bin/env python3
-"""
-Clean startup script for the Django chatbot backend.
-This script sets environment variables and starts the Django development server.
-"""
-
 import os
 import sys
 import subprocess
@@ -32,19 +26,38 @@ def start_server():
     
     setup_clean_environment()
     
-    try:
-        # Run Django development server
-        subprocess.run([
-            sys.executable, 
-            "manage.py", 
-            "runserver", 
-            "127.0.0.1:8000"
-        ], check=True)
-    except KeyboardInterrupt:
-        print("\n\n🛑 Server stopped by user")
-    except subprocess.CalledProcessError as e:
-        print(f"\n❌ Server failed to start: {e}")
-        sys.exit(1)
+    # Check if we're on Render (production)
+    if os.environ.get('RENDER'):
+        print("🚀 Starting production server on Render...")
+        try:
+            # Use Gunicorn for production
+            subprocess.run([
+                sys.executable, 
+                "-m", "gunicorn",
+                "--bind", f"0.0.0.0:{os.environ.get('PORT', '8000')}",
+                "--workers", "2",
+                "--timeout", "120",
+                "chatbot_backend.wsgi:application"
+            ], check=True)
+        except KeyboardInterrupt:
+            print("\n\n🛑 Server stopped by user")
+        except subprocess.CalledProcessError as e:
+            print(f"\n❌ Server failed to start: {e}")
+            sys.exit(1)
+    else:
+        # Development server
+        try:
+            subprocess.run([
+                sys.executable, 
+                "manage.py", 
+                "runserver", 
+                "127.0.0.1:8000"
+            ], check=True)
+        except KeyboardInterrupt:
+            print("\n\n🛑 Server stopped by user")
+        except subprocess.CalledProcessError as e:
+            print(f"\n❌ Server failed to start: {e}")
+            sys.exit(1)
 
 if __name__ == "__main__":
     start_server()

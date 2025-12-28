@@ -1,0 +1,15 @@
+# Minimal requirements for Render deployment
+Django==5.2
+djangorestframework==3.15.2
+django-cors-headers==4.6.0
+
+# Essential libraries (lightweight versions)
+numpy==1.26.4
+requests==2.32.3
+
+# Production server
+gunicorn==21.2.0
+whitenoise==6.6.0
+
+# Basic text processing (no heavy ML dependencies)
+nltk==3.9.1
