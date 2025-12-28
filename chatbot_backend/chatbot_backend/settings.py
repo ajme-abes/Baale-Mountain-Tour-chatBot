@@ -29,9 +29,19 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-#e$v3&kg4cfoj#-of&kq5b67qhzhwsupw@3!p6-f)a(xz430pj'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.environ.get('DEBUG', 'True').lower() == 'true'
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    'localhost',
+    '127.0.0.1',
+    '.render.com',
+    '.railway.app',
+    '.vercel.app',
+    '.netlify.app',
+    '.pythonanywhere.com',
+    'bale-mountains-backend.onrender.com',
+    'baale-mountain-tour-chatbot.up.railway.app'
+]
 
 # Logging configuration to reduce noise
 LOGGING = {
@@ -80,11 +90,14 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
-CORS_ORIGIN_ALLOW_ALL = True  # For development only
+CORS_ORIGIN_ALLOW_ALL = DEBUG  # Only allow all in development
 
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",  # React dev server
-    "http://127.0.0.1:3000"
+    "http://127.0.0.1:3000",
+    "https://bale-mountains-frontend.vercel.app",
+    "https://baale-mountain-tour-chatbot.netlify.app",
+    "https://ajme-abes.github.io"
 ]
 CORS_ALLOW_METHODS = [
     'POST',

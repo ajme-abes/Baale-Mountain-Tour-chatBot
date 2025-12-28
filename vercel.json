@@ -1,0 +1,21 @@
+{
+    "name": "bale-mountains-frontend",
+    "version": 2,
+    "builds": [
+        {
+            "src": "chatbot-frontend/package.json",
+            "use": "@vercel/static-build",
+            "config": {
+                "distDir": "build"
+            }
+        }
+    ],
+    "routes": [
+        {
+            "src": "/(.*)",
+            "dest": "/chatbot-frontend/$1"
+        }
+    ],
+    "buildCommand": "cd chatbot-frontend && npm run build",
+    "outputDirectory": "chatbot-frontend/build"
+}

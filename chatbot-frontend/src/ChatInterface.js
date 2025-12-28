@@ -29,6 +29,9 @@ export default function ChatInterface() {
     const [showWelcome, setShowWelcome] = useState(true);
     const messagesEndRef = useRef(null);
 
+    // API URL from environment variable or default to localhost
+    const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:8000';
+
     useEffect(() => {
         messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
     }, [messages]);
@@ -55,7 +58,7 @@ export default function ChatInterface() {
         setMessages((prev) => [...prev, userMsg]);
 
         try {
-            const response = await axios.post('http://localhost:8000/api/chat/', {
+            const response = await axios.post(`${API_URL}/api/chat/`, {
                 message: userMessage
             });
 
