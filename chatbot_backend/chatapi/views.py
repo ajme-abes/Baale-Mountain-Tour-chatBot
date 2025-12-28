@@ -7,14 +7,23 @@ from rest_framework.response import Response
 from rest_framework import status
 from rest_framework.decorators import api_view
 
-# Import SimpleProcessor for deployment (lightweight)
-try:
+# Force use of SimpleProcessor for deployment
+USE_SIMPLE_PROCESSOR = os.environ.get('USE_SIMPLE_PROCESSOR', 'false').lower() == 'true'
+IS_RENDER = os.environ.get('RENDER') is not None
+
+if USE_SIMPLE_PROCESSOR or IS_RENDER:
+    # Use SimpleProcessor for deployment (no ML dependencies)
     from .utils.simple_processor import SimpleProcessor as ChatProcessor
-    PROCESSOR_TYPE = "SimpleProcessor"
-except ImportError:
-    # Fallback to full ChatProcessor for local development
-    from .utils.chat_processor import ChatProcessor
-    PROCESSOR_TYPE = "ChatProcessor"
+    PROCESSOR_TYPE = "SimpleProcessor (Deployment Mode)"
+else:
+    # Use full ChatProcessor for local development
+    try:
+        from .utils.chat_processor import ChatProcessor
+        PROCESSOR_TYPE = "ChatProcessor (Development Mode)"
+    except ImportError:
+        # Fallback to SimpleProcessor if ChatProcessor dependencies are missing
+        from .utils.simple_processor import SimpleProcessor as ChatProcessor
+        PROCESSOR_TYPE = "SimpleProcessor (Fallback Mode)"
 
 from django.conf import settings
 import requests

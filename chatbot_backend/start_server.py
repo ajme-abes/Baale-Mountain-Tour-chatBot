@@ -6,7 +6,7 @@ import warnings
 def setup_clean_environment():
     """Set up a clean environment with suppressed warnings."""
     
-    # Suppress TensorFlow warnings
+    # Suppress TensorFlow warnings (if TensorFlow was installed)
     os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
     os.environ['TF_ENABLE_ONEDNN_OPTS'] = '0'
     
@@ -22,13 +22,14 @@ def start_server():
     """Start the Django development server with clean output."""
     
     print("🏔️  Starting Bale Mountains Chatbot Backend...")
+    print("🚀 Using SimpleProcessor (lightweight deployment mode)")
     print("=" * 50)
     
     setup_clean_environment()
     
     # Check if we're on Render (production)
-    if os.environ.get('RENDER'):
-        print("🚀 Starting production server on Render...")
+    if os.environ.get('RENDER') or os.environ.get('USE_SIMPLE_PROCESSOR'):
+        print("🚀 Starting production server...")
         try:
             # Use Gunicorn for production
             subprocess.run([
@@ -46,6 +47,7 @@ def start_server():
             sys.exit(1)
     else:
         # Development server
+        print("💻 Starting development server...")
         try:
             subprocess.run([
                 sys.executable, 
