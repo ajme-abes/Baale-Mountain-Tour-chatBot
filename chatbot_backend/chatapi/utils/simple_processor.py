@@ -8,8 +8,8 @@ logger = logging.getLogger(__name__)
 
 class SimpleProcessor:
     """
-    Lightweight chat processor for deployment without heavy ML dependencies.
-    Uses pattern matching instead of ML models for intent recognition.
+    Ultra-lightweight chat processor for deployment.
+    Uses only basic Python - no external NLP libraries.
     """
     
     def __init__(self):
@@ -18,7 +18,7 @@ class SimpleProcessor:
         
         try:
             self._load_intents()
-            logger.info("SimpleProcessor initialized successfully")
+            logger.info("SimpleProcessor initialized successfully (no external dependencies)")
         except Exception as e:
             logger.error(f"SimpleProcessor initialization failed: {str(e)}")
             self.intents = {"intents": []}
