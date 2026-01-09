@@ -97,14 +97,24 @@ CORS_ALLOWED_ORIGINS = [
     "http://127.0.0.1:3000",
     "https://bale-mountains-frontend.vercel.app",
     "https://baale-mountain-tour-chatbot.netlify.app",
+    "https://baale-mountain.netlify.app",  # Your actual Netlify URL
     "https://ajme-abes.github.io"
 ]
 CORS_ALLOW_METHODS = [
+    'GET',
     'POST',
     'OPTIONS',
 ]
 CORS_ALLOW_HEADERS = [
+    'accept',
+    'accept-encoding',
+    'authorization',
     'content-type',
+    'dnt',
+    'origin',
+    'user-agent',
+    'x-csrftoken',
+    'x-requested-with',
 ]
 # Add these to your Django settings
 TRANSLATION_SERVICE = 'google'  # or 'deepl'

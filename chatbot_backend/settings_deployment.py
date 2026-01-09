@@ -33,10 +33,24 @@ MIDDLEWARE = [
     'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
-# CORS
+# CORS - Allow all origins for deployment
 CORS_ALLOW_ALL_ORIGINS = True
-CORS_ALLOW_METHODS = ['POST', 'OPTIONS']
-CORS_ALLOW_HEADERS = ['content-type']
+CORS_ALLOW_METHODS = [
+    'GET',
+    'POST', 
+    'OPTIONS',
+]
+CORS_ALLOW_HEADERS = [
+    'accept',
+    'accept-encoding',
+    'authorization',
+    'content-type',
+    'dnt',
+    'origin',
+    'user-agent',
+    'x-csrftoken',
+    'x-requested-with',
+]
 
 # URLs
 ROOT_URLCONF = 'chatbot_backend.urls'

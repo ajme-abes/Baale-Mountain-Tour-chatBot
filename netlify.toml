@@ -12,3 +12,4 @@
   NODE_VERSION = "18"
   NPM_VERSION = "9"
   CI = "false"
+  REACT_APP_API_URL = "https://bale-mountains-backend.onrender.com"
