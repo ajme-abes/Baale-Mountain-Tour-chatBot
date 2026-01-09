@@ -9,7 +9,6 @@ import {
 } from '@mui/material';
 import { motion, AnimatePresence } from 'framer-motion';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import ExpandLessIcon from '@mui/icons-material/ExpandLess';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import HotelIcon from '@mui/icons-material/Hotel';
 import HikingIcon from '@mui/icons-material/Hiking';
@@ -115,7 +114,6 @@ const QuickActions = ({ onActionClick }) => {
                                     icon={action.icon}
                                     label={action.label}
                                     onClick={() => {
-                                        console.log('Chip clicked:', action.query);
                                         onActionClick(action.query);
                                     }}
                                     color={action.color}

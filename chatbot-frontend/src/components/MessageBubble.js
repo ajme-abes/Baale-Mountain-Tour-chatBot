@@ -358,17 +358,6 @@ const MessageBubble = ({ message, index }) => {
                                 {message.text}
                             </Typography>
                         )}
-
-                        {message.isBot && message.intent && (
-                            <Box sx={{ mt: 1, pt: 1, borderTop: '1px solid rgba(0,0,0,0.1)' }}>
-                                <Chip
-                                    label={`${message.intent} (${message.confidence}%)`}
-                                    size="small"
-                                    variant="outlined"
-                                    sx={{ fontSize: '0.7rem' }}
-                                />
-                            </Box>
-                        )}
                     </Paper>
 
                     <Box sx={{

@@ -29,8 +29,8 @@ export default function ChatInterface() {
     const [showWelcome, setShowWelcome] = useState(true);
     const messagesEndRef = useRef(null);
 
-    // API URL from environment variable or default to localhost
-    const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:8000';
+    // API URL - Update this to your deployed backend URL
+    const API_URL = process.env.REACT_APP_API_URL || 'https://bale-mountains-backend.onrender.com';
 
     useEffect(() => {
         messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
@@ -86,7 +86,6 @@ export default function ChatInterface() {
     };
 
     const handleQuickAction = (action) => {
-        console.log('Quick action clicked:', action);
         handleSend(action);
     };
 
