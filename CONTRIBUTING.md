@@ -34,8 +34,7 @@ Thank you for your interest in contributing to the Bale Mountains Explorer proje
    python -m venv venv
    source venv/bin/activate  # Windows: venv\Scripts\activate
    pip install -r requirements.txt
-   python -m spacy download en_core_web_lg
-   python start_server.py
+   python manage.py runserver
    ```
 
 3. **Frontend Setup**
